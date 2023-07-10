@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# AEM Franklin - Maestro
+https://maestro.maark.com/ on AEM Franklin
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--maestro--hlxsites.hlx.page/
+- Live: https://main--maestro--hlxsites.hlx.live/
 
 ## Installation
 
