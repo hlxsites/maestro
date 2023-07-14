@@ -1,1 +1,9 @@
 /* below the fold CSS goes here */
+@font-face {
+    font-family: LabGrotesque;
+    src: url('./fonts/LabGrotesque.ttf');
+    src: url('./fonts/LabGrotesque.ttf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
