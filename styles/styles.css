@@ -45,7 +45,7 @@
   --body-font-size-m: 24px;
   --body-font-size-s: 20px;
   --body-font-size-xs: 16px;
-  --body-font-size-xxs: 16px;
+  --body-font-size-xxs: 12px;
 
   
   /* heading sizes */
@@ -61,11 +61,13 @@
 
   /* line height */
   --line-height-1: 1;
+  --line-height-1-25: 1.25;
   --line-height-1-5: 1.5;
 
   /* letter spacing */
-  --letter-spacing-1: 0.02em;
+  --letter-spacing-2: 0.02em;
   --letter-spacing-button: 0.2em;
+  --letter-spacing-1: 0.01em;
 
 }
 
@@ -88,7 +90,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
-  letter-spacing: var(--letter-spacing-1);
+  letter-spacing: var(--letter-spacing-2);
 }
 
 body.appear {
@@ -103,7 +105,7 @@ h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: var(--font-weight-medium);
-  line-height: 1.25;
+  line-height: var(--line-height-1-25);
   margin-top: 1em;
   margin-bottom: .5em;
   scroll-margin: calc(var(--nav-height) + 1em);
@@ -125,8 +127,10 @@ p {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
   font-weight: var(--font-weight-light);
-  line-height: var(--line-height-1);
+  line-height: var(--line-height-1-5);
+  color: var(--text-color);
   letter-spacing: var(--letter-spacing-1);
+  margin-top: 32px;
 }
 
 hr {
@@ -170,20 +174,18 @@ a:hover {
 /* buttons */
 a.button:any-link, button {
   font-family: var(--body-font-family);
-  font-size: 12px;
+  font-size: var(--body-font-size-xxs);
   font-weight: var(--font-weight-heavy);
   line-height: var(--line-height-1);
-  letter-spacing: var(--letter-spacing-button);
-  min-height: 48px;
-  padding: 0 22px;
+  letter-spacing: var(--letter-spacing-button);  
+  padding: 15px 22px;  
   text-transform: uppercase;
   border-style: solid;
   border-width: 2px;
-  color: var(--button-background-color);
-  background: none;
-  border: 0;
-  border-radius: 0;
-  outline: none;
+  background-color: var(--button-background-color);
+  border-color: var(--button-background-color);
+  color: var(--button-label-color);
+
 }
 
 /* buttons */
@@ -215,6 +217,10 @@ a.button.secondary, button.secondary {
   background-color: var(--secondary-button-bg-color);
   border: var(--button-background-color);
   color: var(--button-label-color);
+}
+
+p.button-container {
+  min-height: 48px;
 }
 
 main input {
