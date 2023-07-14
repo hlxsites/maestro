@@ -13,11 +13,19 @@
  :root {
   /* colors */
   --text-color: #454547;
-  --link-color: #00e;
-  --link-hover-color: #00e;
+  --link-color: var(--text-color);
+  --link-hover-color: #00ada2;
   --background-color: #f5f7f7;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
+  --disabled-button-color: #919696;
+  --primary-button-color: #00ada2;
+  --button-label-color: #fff;
+  --button-label-hover-color: var(--button-label-color);
+  --secondary-button-bg-color:  transparent;
+  --button-background-color: var(--text-color);
+
+
 
   /* fonts */
   --body-font-family: 'LabGrotesque', sans-serif;
@@ -44,6 +52,14 @@
   /* nav height */
   --nav-height: 64px;
 
+  /* line height */
+  --line-height-1: 1;
+  --line-height-1-5: 1.5;
+
+  /* letter spacing */
+  --letter-spacing-1: 0.02em;
+  --letter-spacing-button: 0.2em;
+
 }
 
 @media (min-width: 768px) {
@@ -61,10 +77,11 @@ body {
   font-size: var(--body-font-size-m);
   margin: 0;
   font-family: var(--body-font-family);
-  line-height: 1.6;
+  line-height: var(--line-height-1-5);
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  letter-spacing: var(--letter-spacing-1);
 }
 
 body.appear {
@@ -138,38 +155,51 @@ a:hover {
 /* buttons */
 a.button:any-link, button {
   font-family: var(--body-font-family);
-  display: inline-block;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-button);
+  min-height: 48px;
+  padding: 0 22px;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--button-background-color);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  outline: none;
 }
+
+/* buttons */
+a.button.primary,
+button.primary {  
+  background-color: var(--button-background-color);
+  border-color: var(--button-background-color);
+  color: var(--button-label-color);
+}
+
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
+button:focus {
+  outline: 1px solid var(--button-background-color);
+}
+
 button:disabled, button:disabled:hover {
+  color: var(--disabled-button-color);
   background-color: var(--overlay-background-color);
+  border-color: var(--overlay-background-color);
   cursor: unset;
 }
 
 a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color)
+  background-color: var(--secondary-button-bg-color);
+  border: var(--button-background-color);
+  color: var(--button-label-color);
 }
 
 main input {
@@ -222,10 +252,12 @@ main img {
 .icon svg {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 main .section {
   padding: 64px 16px;
+  max-width: 90%;
 }
 
 @media (min-width: 768px) {
