@@ -32,6 +32,13 @@
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
+  /* font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-heavy: 700;
+ 
+
   /* body sizes */
   --body-font-size-xl: 96px;
   --body-font-size-l: 64px;
@@ -95,7 +102,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: .5em;
@@ -112,6 +119,14 @@ h6 { font-size: var(--heading-font-size-xs) }
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-1);
 }
 
 hr {
@@ -156,7 +171,7 @@ a:hover {
 a.button:any-link, button {
   font-family: var(--body-font-family);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: var(--font-weight-heavy);
   line-height: var(--line-height-1);
   letter-spacing: var(--letter-spacing-button);
   min-height: 48px;
@@ -174,8 +189,8 @@ a.button:any-link, button {
 /* buttons */
 a.button.primary,
 button.primary {  
-  background-color: var(--button-background-color);
-  border-color: var(--button-background-color);
+  background-color: var(--primary-button-color);
+  border-color: var(--primary-button-color);
   color: var(--button-label-color);
 }
 
