@@ -31,12 +31,18 @@
   --body-font-family: 'LabGrotesque', sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --ivar-display-font-family: 'IvarDisplay', sans-serif;
+  --ivar-headline-font-family: 'IvarHeadline', sans-serif;
+  --ivar-text-font-family: 'IvarText', sans-serif;
 
   /* font weight */
+  --font-weight-normal: 100;
   --font-weight-light: 300;
   --font-weight-regular: 400;
+  --font-weight-medium-light: 500;
   --font-weight-medium: 600;
   --font-weight-heavy: 700;
+  --font-weight-extra-heavy: 900;
  
 
   /* body sizes */
