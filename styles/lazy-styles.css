@@ -1,1 +1,71 @@
 /* below the fold CSS goes here */
+
+/* Ivar Display */
+@font-face {
+  font-family: IvarDisplay;
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/IvarDisplay-SemiBold.woff2') format('woff2'), url('./fonts/IvarDisplay-SemiBold.woff2') format('woff'); }
+
+/* Ivar Headline */
+@font-face {
+  font-family: IvarHeadline;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/IvarHeadline-Medium.woff2') format('woff2'), url('./fonts/IvarHeadline-Medium.woff2') format('woff'); }
+
+@font-face {
+  font-family: IvarHeadline;
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/IvarHeadline-SemiBold.woff2') format('woff2'), url('./fonts/IvarHeadline-SemiBold.woff2') format('woff'); }
+
+/* Ivar Text */
+@font-face {
+  font-family: IvarText;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/IvarText-Medium.woff2') format('woff2'), url('./fonts/IvarText-Medium.woff2') format('woff'); }
+
+@font-face {
+  font-family: IvarText;
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/IvarText-SemiBold.woff2') format('woff2'), url('./fonts/IvarText-SemiBold.woff2') format('woff'); }
+
+/* Lab Grotesque */
+@font-face {
+  font-family: LabGrotesque;
+  font-style: normal;
+  font-weight: 100;
+  src: url('./fonts/LabGrotesque-Thin.woff2') format('woff2'), url('./fonts/LabGrotesque-Thin.woff2') format('woff'); }
+
+@font-face {
+  font-family: LabGrotesque;
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/LabGrotesque-Light.woff2') format('woff2'), url('./fonts/LabGrotesque-Light.woff2') format('woff'); }
+
+@font-face {
+  font-family: LabGrotesque;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/LabGrotesque-Regular.woff2') format('woff2'), url('./fonts/LabGrotesque-Regular.woff2') format('woff'); }
+
+@font-face {
+  font-family: LabGrotesque;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/LabGrotesque-Medium.woff2') format('woff2'), url('./fonts/LabGrotesque-Medium.woff2') format('woff'); }
+
+@font-face {
+  font-family: LabGrotesque;
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/LabGrotesque-Bold.woff2') format('woff2'), url('./fonts/LabGrotesque-Bold.woff2') format('woff'); }
+
+@font-face {
+  font-family: LabGrotesque;
+  font-style: normal;
+  font-weight: 900;
+  src: url('./fonts/LabGrotesque-Black.woff2') format('woff2'), url('./fonts/LabGrotesque-Black.woff2') format('woff'); }
