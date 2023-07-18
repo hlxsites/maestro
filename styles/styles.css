@@ -25,8 +25,6 @@
   --secondary-button-bg-color:  transparent;
   --button-background-color: var(--text-color);
 
-
-
   /* fonts */
   --body-font-family: 'LabGrotesque', sans-serif;
   --heading-font-family: var(--body-font-family);
@@ -69,12 +67,15 @@
   --line-height-1: 1;
   --line-height-1-25: 1.25;
   --line-height-1-5: 1.5;
+  --line-height-1-66: 1.66;
+  --line-height-2-33: 2.33;
 
   /* letter spacing */
-  --letter-spacing-2: 0.02em;
-  --letter-spacing-button: 0.2em;
-  --letter-spacing-1: 0.01em;
 
+  --letter-spacing-button: 0.2em;
+  --letter-spacing-05: 0.005em;
+  --letter-spacing-1: 0.01em;
+  --letter-spacing-2: 0.02em;
 }
 
 @media (min-width: 768px) {
