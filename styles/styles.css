@@ -12,15 +12,19 @@
 
  :root {
   /* colors */
+  --clr-white: #fff;
+  --clr-gray: #919696;
+  --clr-darkblue: #27292b;
+  --clr-blue: #00ada2;
   --text-color: #454547;
   --link-color: var(--text-color);
-  --link-hover-color: #00ada2;
+  --link-hover-color: var(--clr-blue);
   --background-color: #f5f7f7;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
-  --disabled-button-color: #919696;
-  --primary-button-color: #00ada2;
-  --button-label-color: #fff;
+  --disabled-button-color: var(--clr-gray);
+  --primary-button-color: var(--clr-blue);
+  --button-label-color: var(--clr-white);
   --button-label-hover-color: var(--button-label-color);
   --secondary-button-bg-color:  transparent;
   --button-background-color: var(--text-color);
@@ -71,11 +75,18 @@
   --line-height-2-33: 2.33;
 
   /* letter spacing */
-
   --letter-spacing-button: 0.2em;
   --letter-spacing-05: 0.005em;
   --letter-spacing-1: 0.01em;
   --letter-spacing-2: 0.02em;
+
+   /* layout spacers */
+   --spacer-layout-16: 16px;
+   --spacer-layout-24: 24px;
+   --spacer-layout-32: 32px;
+   --spacer-layout-40: 40px;
+   --spacer-layout-50: 50px;
+   --spacer-layout-100: 100px;
 }
 
 @media (min-width: 768px) {

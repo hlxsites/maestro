@@ -1,16 +1,16 @@
 /* stylelint-disable no-descending-specificity */
 footer {
-  background-color: #27292b;
+  background-color: var(--clr-darkblue);
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
-  padding: 40px 0 100px;
+  padding: var(--spacer-layout-40) 0 var(--spacer-layout-100);
 }
 
 footer .footer {
   max-width: 1200px;
-  margin: 0 32px;
+  margin: 0 var(--spacer-layout-32);
 }
 
 footer .footer > div > div{
@@ -21,7 +21,7 @@ footer .footer > div > div{
 footer .footer-main-links,
 footer .footer-social,
 footer .footer-ad{
-  margin-top: 50px;
+  margin-top: var(--spacer-layout-50);
 }
 
 /* footer main links */
@@ -58,7 +58,7 @@ footer .footer-main-links h5 > a
   font-size: var(--body-font-size-xxs);
   font-weight: var(--font-weight-heavy);
   line-height: var(--line-height-2-33);
-  color: #ffff;
+  color: var(--clr-white);
   letter-spacing: var(--letter-spacing-05);
   margin-bottom: 3px;
   text-transform: uppercase;
@@ -76,7 +76,7 @@ footer .footer-main-links ul >li a{
   font-size: var(--body-font-size-xs);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-1-66);
-  color: #919696;
+  color: var(--clr-gray);
   letter-spacing: var(--letter-spacing-2);
   text-transform: none;
   cursor: pointer;
@@ -105,7 +105,7 @@ footer .footer-ad > div > div:nth-child(1) {
   margin-bottom: 20px;
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-1-66);
-  color: #ffff;
+  color: var(--clr-white);
   letter-spacing: var(--letter-spacing-2);
   font-size: var(--body-font-size-xs);
   font-family: var(--body-font-family);
@@ -157,11 +157,11 @@ footer .footer-social > div > div
 
 footer .footer-social > div > div p{
   margin: 0;
-  margin-right: 32px;
+  margin-right: var(--spacer-layout-32);
 }
 
 footer .footer-social svg{
-  fill: #ffff; 
+  fill: var(--clr-white);
 }
 
 footer .footer-social svg:hover{
@@ -174,7 +174,7 @@ footer .footer-copyright > div{
   font-size: var(--body-font-size-xxs);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-1-25);
-  color: #919696;
+  color: var(--clr-gray);
   letter-spacing: var(--letter-spacing-2);
   display: flex;
   justify-content: space-between;
@@ -182,7 +182,7 @@ footer .footer-copyright > div{
 }
 
 footer .footer-copyright > div a{
-  color: #919696;
+  color:var(--clr-gray);
   flex: 0 0 auto;
   text-decoration: underline;
   text-transform: none;
@@ -194,7 +194,7 @@ footer .footer-copyright > div a{
 footer .footer {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--spacer-layout-32);
 }  
 
 footer .footer-main-links > div > div > h5:first-child{
