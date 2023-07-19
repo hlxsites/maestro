@@ -376,12 +376,11 @@ text-align: center;
   }
 
   .columns.banner > div > div {
-    flex-basis: 41.667%;
+    flex: 0 0 41.667%;
   }
 
   .columns.banner > div > div.columns-img-col {
-    flex-shrink: 1;
-    flex-basis: 50%;
+    flex: 0 1 50%;
   }
 
   .columns.banner h1{
