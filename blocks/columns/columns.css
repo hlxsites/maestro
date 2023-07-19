@@ -365,9 +365,8 @@ text-align: center;
 
 @media (min-width: 768px) {
   .columns > div {
-    flex-direction: unset;
+    flex-flow: row nowrap;
     gap: var(--spacer-layout-32);
-    flex-wrap: nowrap;
   }
 
   .columns > div > div {
