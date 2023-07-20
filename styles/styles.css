@@ -319,7 +319,7 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 /* ErrorPage container */
-.ErrorPage {
+.error-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -332,13 +332,13 @@ main .section.highlight {
 
 /* Responsive adjustments */
 @media (max-width: 1344px) {
-  .ErrorPage {
+  .error-page {
     margin: 0 32px;
   }
 }
 
 /* ErrorPage text */
-.ErrorPage :is(h1, h2, h3, h4, h5, h6, p) {
+.error-page :is(h1, h2, h3, h4, h5, h6, p) {
   font-family: "IvarHeadline", sans-serif;
   font-size: 24px;
   line-height: 1.5;
@@ -347,14 +347,12 @@ main .section.highlight {
 
 /* Responsive adjustments for the text */
 @media (min-width: 768px) {
-  .ErrorPage :is(h1, h2, h3, h4, h5, h6, p) {
+  .error-page :is(h1, h2, h3, h4, h5, h6, p) {
     font-size: 36px;
   }
 }
 
 /* ErrorPage home button */
-.ErrorPage__homeButton {
+.error-page__home-button {
   margin-top: 32px;
 }
-
-

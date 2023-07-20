@@ -2,7 +2,6 @@
 <html>
 
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=IvarHeadline&display=swap" rel="stylesheet">
   <title>Page not found</title>
   <script type="text/javascript">
     window.isErrorPage = true;
@@ -31,40 +30,23 @@
     });
   </script>
   <link rel="stylesheet" href="/styles/styles.css">
-  <style>
-    main.error {
-      min-height: calc(100vh - var(--nav-height));
-      display: flex;
-      align-items: center;
-    }
-
-    main.error .error-number {
-      width: 100%;
-    }
-
-    main.error .error-number text {
-      font-family: var(--fixed-font-family);
-    }
-    div {
-      text-align: center;
-    }
-  </style>
   <link rel="stylesheet" href="/styles/lazy-styles.css">
 </head>
 
 <body>
   <header></header>
   <main>
-    <div class="ErrorPage">
-    <h1 class="ErrorPage__Title">
+    <div class="error-page">
+      <h1 class="error-page__title">
         <p>Looks like you got a little lost...</p>
-    </h1>
-        <a href="https://maestro.maark.com/" class="button primary">GO TO HOMEPAGE</a>
-  </div>
+      </h1>
+      <a href="https://maestro.maark.com/" class="button primary error-page__home-button">GO TO HOMEPAGE</a>
+    </div>
   </main>
-  <footer></footer>
+  <footer>
+    <!-- Placeholder content for the footer -->
+    <p>This is the footer content.</p>
+  </footer>
 </body>
-
-</html>
 
 </html>
