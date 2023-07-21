@@ -16,7 +16,7 @@
   --clr-gray: #919696;
   --clr-darkblue: #27292b;
   --clr-blue: #00ada2;
-  --text-color: var(--text-color);
+  --text-color: #454547
   --link-color: var(--text-color);
   --link-hover-color: var(--clr-blue);
   --background-color: #ffff;
@@ -211,7 +211,7 @@ a.button:any-link, button {
   background-color: var(--button-background-color);
   border-color: var(--button-background-color);
   color: var(--button-label-color);
-
+  font-style: normal;
 }
 
 /* buttons */
@@ -240,9 +240,9 @@ button:disabled, button:disabled:hover {
 }
 
 a.button.secondary, button.secondary {
+  color: var(--clr-blue);
   background-color: var(--secondary-button-bg-color);
-  border: var(--button-background-color);
-  color: var(--button-label-color);
+  border-color: var(--clr-blue);
 }
 
 p.button-container {
@@ -323,5 +323,10 @@ main .section.highlight {
 }
 
 main .section.gray-background{
+  background-color: #f5f7f7;
+}
+
+
+main .section.hero-background{
   background-color: #f5f7f7;
 }

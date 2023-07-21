@@ -64,7 +64,7 @@
   font-style: normal ;
 }
 
-.columns.banner p{
+.columns.banner p:not(.button-container){
   margin-top: var(--spacer-layout-24);
   margin-bottom: 46px;
   letter-spacing: var(--letter-spacing-1);
@@ -83,7 +83,42 @@
   height: 45px;
 } 
 
+/* Columns Banner & Hero Variant */
 
+.columns.banner.hero{
+  padding-top: var(--spacer-layout-32);
+  padding-bottom: var(--spacer-layout-32);
+}
+
+.columns.banner.hero > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--spacer-layout-32);
+}
+
+.columns.banner.hero h1{
+  font-family: var(--labg-text-thin);
+  font-size: 72px;
+  font-weight: var( --font-weight-light);;
+  line-height: var(--line-height-1);
+  color: var(--text-color);
+}
+
+.columns.banner.hero h1 strong{
+  font-family: var(--ivar-display-semibold);
+  font-weight: var( --font-weight-medium);
+  font-style: normal ;
+  color: inherit;
+}
+
+.columns.banner.hero p{
+  letter-spacing: var(--letter-spacing-2);
+}
+
+.columns.banner.hero p.button-container a {
+  display: block;
+  text-align: center;
+}
 
 /* Columns Banners & About Page Variant */
 
@@ -173,7 +208,7 @@
   margin-bottom: var(--spacer-layout-16);
 }
 
-.columns.banner.secondary p.button-container > a{
+.columns.banner.secondary p.button-container a{
 display: block;
 text-align: center;
 }
@@ -487,4 +522,18 @@ text-align: center;
   .columns.features.about > div:not(:first-of-type){
     margin-top: 90px;
   }
+
+  /* Columns Banner & Hero Variant */
+.columns.banner.hero > div {
+  flex-direction: row;
+}
+
+.columns.banner.hero p.button-container a {
+  display: inherit;
+  text-align: center;
+}
+
+.columns.banner.hero h1{
+  font-size: 96px;
+}
 }
