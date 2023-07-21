@@ -308,59 +308,64 @@ main .section.highlight {
 }
 
 .section.secondary-banner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    min-width: 0;
-    max-width: 100%;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-top: 66px;
-    padding-bottom: 72px;
-    background-color: #00ada2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  min-width: 0;
+  max-width: 100%;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-top: 66px;
+  padding-bottom: 72px;
+  background-color: #00ada2;
 }
 
 .section.secondary-banner .default-content-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    max-width: 100%;
-    max-width: 1280px;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 880px;
-    text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 880px;
+  text-align: center;
 }
 
 .section.secondary-banner .default-content-wrapper > p:first-child {
-    font-family: "LabGrotesque";
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #ffffff;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  font-family: "LabGrotesque";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .section.secondary-banner .default-content-wrapper > p:nth-child(3) {
-    font-family: "LabGrotesque";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #ffffff;
-    margin: 16px 0 28px;
+  margin: 0;
+}
+
+.section.secondary-banner .default-content-wrapper > p:nth-child(4) {
+  font-family: "LabGrotesque";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  margin: 16px 0 28px;
 }
 
 .section.secondary-banner .default-content-wrapper .icon.icon-manulife-white {
@@ -371,27 +376,24 @@ main .section.highlight {
   color: white;
 }
 
-.section.secondary-banner .default-content-wrapper .icon.icon-manulife-white svg {
-  fill: #ffffff;
-}
-
 .section.secondary-banner .default-content-wrapper > h2 {
-    font-family: "LabGrotesque";
-    font-size: 64px;
-    line-height: 1;
-    color: #ffffff;
-    margin: 22px 0;
-    font-weight: 300;
+  font-family: "LabGrotesque";
+  font-size: 64px;
+  line-height: 1;
+  color: #ffffff;
+  margin: 22px 0;
+  font-weight: 300;
 }
 
 .section.secondary-banner .default-content-wrapper > h2 > strong {
-    font-family: "IvarDisplay";
-    font-weight: 600;
+  font-family: "IvarDisplay";
+  font-weight: 600;
 }
 
 .section.secondary-banner .default-content-wrapper .button-container {
   --button-background-color: #ffffff;
   --button-label-color: #00ada2;
+  margin: 0;
 }
 
 .section.secondary-banner .default-content-wrapper .button.primary {
@@ -408,14 +410,6 @@ main .section.highlight {
   border-color: var(--button-background-color);
   color: var(--button-label-color);
 }
-
-.section.secondary-banner .default-content-wrapper .button-container {
-    padding: 0;
-    margin: 0;
-    border: 0 none;
-}
-
-
 
 @media (min-width: 768px) {
   main .section.secondary-banner {
