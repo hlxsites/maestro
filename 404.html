@@ -29,6 +29,47 @@
       sampleRUM('404', { source: document.referrer, target: window.location.href });
     });
   </script>
+  <style>
+/* error page container */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 50vh;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1344px) {
+  .error-page {
+    margin: 0 32px;
+  }
+}
+
+/* error page text */
+.error-page :is(h1, h2, h3, h4, h5, h6, p) {
+  font-family: IvarHeadline, sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #454547;
+}
+
+/* Responsive adjustments for the text */
+@media (min-width: 768px) {
+  .error-page :is(h1, h2, h3, h4, h5, h6, p) {
+    font-size: 36px;
+  }
+}
+
+/* error page home button */
+.error-page-home-button {
+  margin-top: 32px;
+}
+
+  </style>
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/lazy-styles.css">
 </head>
