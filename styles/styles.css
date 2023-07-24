@@ -16,10 +16,10 @@
   --clr-gray: #919696;
   --clr-darkblue: #27292b;
   --clr-blue: #00ada2;
-  --text-color: #454547;
+  --text-color: #454547
   --link-color: var(--text-color);
   --link-hover-color: var(--clr-blue);
-  --background-color: #f5f7f7;
+  --background-color: #ffff;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --disabled-button-color: var(--clr-gray);
@@ -30,12 +30,19 @@
   --button-background-color: var(--text-color);
 
   /* fonts */
-  --body-font-family: 'LabGrotesque', sans-serif;
+  --ivar-display-semibold: 'IvarDisplay Semibold', sans-serif;
+  --ivar-headline-medium: 'IvarHeadline Medium', sans-serif;
+  --ivar-headline-semibold: 'IvarHeadline Semibold', sans-serif;
+  --ivar-text-medium: 'IvarText Medium', sans-serif;
+  --ivar-text-semibold: 'IvarText Semibold', sans-serif;
+  --labg-text-thin:  'LabGrotesque Thin', sans-serif;
+  --labg-text-light: 'LabGrotesque Light', sans-serif;
+  --labg-text-regular: 'LabGrotesque Regular', sans-serif;
+  --labg-text-medium: 'LabGrotesque Medium', sans-serif;
+  --labg-text-bold: 'LabGrotesque Bold', sans-serif;
+  --labg-text-black: 'LabGrotesque Black', sans-serif;
+  --body-font-family: var(--labg-text-thin);
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
-  --ivar-display-font-family: 'IvarDisplay', sans-serif;
-  --ivar-headline-font-family: 'IvarHeadline', sans-serif;
-  --ivar-text-font-family: 'IvarText', sans-serif;
 
   /* font weight */
   --font-weight-normal: 100;
@@ -48,10 +55,11 @@
  
 
   /* body sizes */
-  --body-font-size-xl: 96px;
-  --body-font-size-l: 64px;
-  --body-font-size-m: 24px;
-  --body-font-size-s: 20px;
+  --body-font-size-xxl: 96px;
+  --body-font-size-xl: 64px;
+  --body-font-size-l: 48px;
+  --body-font-size-m: 20px;
+  --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
   --body-font-size-xxs: 12px;
 
@@ -203,7 +211,7 @@ a.button:any-link, button {
   background-color: var(--button-background-color);
   border-color: var(--button-background-color);
   color: var(--button-label-color);
-
+  font-style: normal;
 }
 
 /* buttons */
@@ -232,9 +240,9 @@ button:disabled, button:disabled:hover {
 }
 
 a.button.secondary, button.secondary {
+  color: var(--clr-blue);
   background-color: var(--secondary-button-bg-color);
-  border: var(--button-background-color);
-  color: var(--button-label-color);
+  border-color: var(--clr-blue);
 }
 
 p.button-container {
@@ -282,22 +290,17 @@ main img {
   height: auto;
 }
 
-.icon {
+/* .icon {
   display: inline-block;
   height: 24px;
   width: 24px;
-}
+} */
 
-.icon svg {
+/* .icon svg {
   height: 100%;
   width: 100%;
   overflow: hidden;
-}
-
-main .section {
-  padding: 64px 16px;
-  max-width: 90%;
-}
+} */
 
 @media (min-width: 768px) {
   .section > div {
@@ -317,48 +320,4 @@ main .section {
 /* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
-}
-
-/* ErrorPage container */
-.error-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  max-width: 1280px;
-  margin: 0 auto;
-  min-height: 50vh;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1344px) {
-  .error-page {
-    margin: 0 32px;
-  }
-}
-
-/* ErrorPage text */
-.error-page :is(h1, h2, h3, h4, h5, h6, p) {
-  font-family: IvarHeadline, sans-serif;
-  font-size: 24px;
-  line-height: 1.5;
-  color: #454547;
-}
-
-/* Responsive adjustments for the text */
-@media (min-width: 768px) {
-  .error-page :is(h1, h2, h3, h4, h5, h6, p) {
-    font-size: 36px;
-  }
-}
-
-/* ErrorPage home button */
-.error-page-home-button {
-  margin-top: 32px;
-}
-
-/* ErrorPage home title */
-.error-page-home-title {
-  margin-top: 32px;
 }

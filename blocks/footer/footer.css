@@ -189,6 +189,13 @@ footer .footer-copyright > div a{
 }
 
 
+.footer .icon-linkedin svg,
+.footer .icon-instagram svg,
+.footer .icon-twitter svg {
+  width: 25px;
+  height: 24px;
+}
+
 /* Desktop */
 @media only screen and (min-width: 1024px) {
 footer .footer {
