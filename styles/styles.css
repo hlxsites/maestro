@@ -330,6 +330,7 @@ main .section.gray-background{
 main .section.hero-background{
   background-color: #f5f7f7;
 }
+
 /* error-page container */
 .error-page {
   display: flex;
@@ -351,7 +352,7 @@ main .section.hero-background{
 
 /* error page text */
 .error-page :is(h1, h2, h3, h4, h5, h6, p) {
-  font-family: "IvarHeadline", sans-serif;
+  font-family: IvarHeadline, sans-serif;
   font-size: 24px;
   line-height: 1.5;
   color: #454547;
