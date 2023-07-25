@@ -63,24 +63,9 @@
 }
 
 
-.insights main img {
+.insights main img{
     width: 100%;
-    height: 144px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: lighten;
+    height: 100%;
     max-width: 1440px;
+    display: block;
 }
-
-@media (min-width: 768px) {
-    .insights main img {
-        height: 268px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .insights main img {
-        height: 500px;
-    }
-  }
