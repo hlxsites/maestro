@@ -1,0 +1,30 @@
+/* Insights Page Styling */
+
+main h2{
+    font-family: var(--labg-text-black);
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1;
+    color: #454547;
+    letter-spacing: -0.01em;
+    margin: 2px 0 0;
+}
+
+main .default-content-wrapper p{
+    font-family: var(--labg-text-thin);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.67;
+    color: #454547;
+    letter-spacing: 0.01em;
+}
+
+main .default-content-wrapper p strong{
+    display: inline-block;
+}
+
+main .default-content-wrapper p > strong::first-letter{
+    color: var(--clr-blue);
+    font-family: var(--ivar-display-semibold);
+    font-size:72px
+}
