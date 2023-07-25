@@ -1,6 +1,6 @@
 /* Insights Page Styling */
 
-main h2{
+.insights main h2{
     font-family: var(--labg-text-black);
     font-size: var( --heading-font-size-xl);
     font-weight: var(  --font-weight-extra-heavy);
@@ -10,7 +10,7 @@ main h2{
     margin: 2px 0 0;
 }
 
-main h3{
+.insights main h3{
     font-family: var( --ivar-display-semibold);
     font-size: 30px;
     font-weight: var( --font-weight-medium);
@@ -20,7 +20,7 @@ main h3{
     margin: 60px 0 24px;
 }
 
-main .default-content-wrapper p{
+.insights main .default-content-wrapper p{
     font-family: var(--labg-text-thin);
     font-size: var(--body-font-size-m);
     font-weight: var(--font-weight-light);
@@ -29,18 +29,18 @@ main .default-content-wrapper p{
     letter-spacing: var(  --letter-spacing-1);
 }
 
-main .default-content-wrapper p strong{
+.insights main .default-content-wrapper p strong{
     display: inline-block;
 }
 
-main .default-content-wrapper p > strong::first-letter{
+.insights main .default-content-wrapper p > strong::first-letter{
     color: var(--clr-blue);
     font-family: var(--ivar-display-semibold);
     font-size:72px
 }
 
 
-main .default-content-wrapper p > code::before{
+.insights main .default-content-wrapper p > code::before{
     position: absolute;
     top: 0;
     left: -32px;
@@ -51,7 +51,7 @@ main .default-content-wrapper p > code::before{
     margin-right: 10px;
 }
 
-main .default-content-wrapper p > code{
+.insights main .default-content-wrapper p > code{
     font-family: var(--ivar-display-semibold);
     font-size: var( --heading-font-size-xl);
     font-weight: var(--font-weight-heavy);
@@ -63,3 +63,24 @@ main .default-content-wrapper p > code{
 }
 
 
+.insights main img {
+    width: 100%;
+    height: 144px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: lighten;
+    max-width: 1440px;
+}
+
+@media (min-width: 768px) {
+    .insights main img {
+        height: 268px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .insights main img {
+        height: 500px;
+    }
+  }
