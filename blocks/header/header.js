@@ -103,9 +103,10 @@ export default async function decorate(block) {
     nav.id = 'nav';
     nav.innerHTML = html;    
     const dNav = nav.querySelector('.navigation');console.log(dNav);
-    const mobileNav = nav.querySelector('.hamburger-mobile');console.log(mobileNav);
-    const desktopSidebar = nav.querySelector('.hamburger-desktop');console.log(desktopSidebar);      
-    desktopSidebar.style.visibility ='hidden';
+    const sideNav = nav.querySelector('.sidenav');console.log(sideNav)
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'hamburger-mobile';
+    sideNav.style.visibility ='hidden';
     if (dNav) {
       dNav.querySelectorAll(':scope > div > div > ul > li').forEach((navitem) => {        
         if (dNav.querySelector('ul')) dNav.classList.add('nav-drop');
@@ -122,7 +123,10 @@ export default async function decorate(block) {
         });
       });
     }
-
+    if(sideNav){
+      mobileNav.appendChild(sideNav.querySelector(':scope > div > div > ul'));
+    }
+    dNav.parentNode.appendChild(mobileNav);
     // hamburger for mobile
     const hamburger = document.createElement('div');
     hamburger.classList.add('nav-hamburger');
