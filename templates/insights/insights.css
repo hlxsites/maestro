@@ -2,21 +2,31 @@
 
 main h2{
     font-family: var(--labg-text-black);
-    font-size: 40px;
-    font-weight: 900;
+    font-size: var( --heading-font-size-xl);
+    font-weight: var(  --font-weight-extra-heavy);
     line-height: 1;
-    color: #454547;
+    color: var(--text-color);
     letter-spacing: -0.01em;
     margin: 2px 0 0;
 }
 
+main h3{
+    font-family: var( --ivar-display-semibold);
+    font-size: 30px;
+    font-weight: var( --font-weight-medium);
+    line-height: var(  --line-height-1-25);
+    color: inherit;
+    letter-spacing: 0;
+    margin: 60px 0 24px;
+}
+
 main .default-content-wrapper p{
     font-family: var(--labg-text-thin);
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.67;
-    color: #454547;
-    letter-spacing: 0.01em;
+    font-size: var(--body-font-size-m);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-1-66);
+    color: var(--text-color);
+    letter-spacing: var(  --letter-spacing-1);
 }
 
 main .default-content-wrapper p strong{
@@ -28,3 +38,28 @@ main .default-content-wrapper p > strong::first-letter{
     font-family: var(--ivar-display-semibold);
     font-size:72px
 }
+
+
+main .default-content-wrapper p > code::before{
+    position: absolute;
+    top: 0;
+    left: -32px;
+    width: 32px;
+    height: 100%;
+    content: '';
+    background-color: var(--clr-blue);
+    margin-right: 10px;
+}
+
+main .default-content-wrapper p > code{
+    font-family: var(--ivar-display-semibold);
+    font-size: var( --heading-font-size-xl);
+    font-weight: var(--font-weight-heavy);
+    line-height: var(--line-height-1);
+    color: var(--text-color);
+    letter-spacing: 0;
+    position: relative;
+    text-transform: uppercase;
+}
+
+
