@@ -305,15 +305,49 @@ main img {
 } */
 
 
+main .video-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  /* stylelint-disable-next-line color-function-notation */
+  background-color: rgb(0,0,0,70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .video-modal-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+}
+
+main .video-close {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  z-index: 0;
+  width: 16px;
+  height: 16px;
+  background: url('./icons/close.svg') center/20px no-repeat;
+}
+
+main .video-modal-container video{
+  width: calc(100vw - 60px);
+  max-width: 1280px;
+}
+
+
 @media (min-width: 768px) {
   .section > div {
     max-width: 1280px;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  main a[href$=".mp4"]::after {
-    width: 128px;
   }
 }
 

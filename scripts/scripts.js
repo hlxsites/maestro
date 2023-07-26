@@ -73,9 +73,9 @@ async function decorateTemplates(main) {
 
 export function createVideoModal(main, url) {
   const videoContainer = document.createElement('div');
-  videoContainer.classList.add('video-container');
+  videoContainer.classList.add('video-modal-container');
   const videoWrap = document.createElement('div');
-  videoWrap.classList.add('video-wrap');
+  videoWrap.classList.add('video-modal-wrapper');
   const close = document.createElement('div');
   close.classList.add('video-close');
   const videoIframe = document.createElement('video');
@@ -91,7 +91,7 @@ export function createVideoModal(main, url) {
   main.append(videoContainer);
 
   const closeButton = main.querySelector('.video-close');
-  const videoContainerDiv = main.querySelector('.video-container');
+  const videoContainerDiv = main.querySelector('.video-modal-container ');
   if (closeButton) {
     closeButton.addEventListener('click', (e) => {
       e.preventDefault();
