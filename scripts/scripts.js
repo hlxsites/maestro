@@ -73,9 +73,9 @@ async function decorateTemplates(main) {
 
 export function createVideoModal(main, url) {
   const videoContainer = document.createElement('div');
-  videoContainer.classList.add('video-container');
+  videoContainer.classList.add('video-modal-container');
   const videoWrap = document.createElement('div');
-  videoWrap.classList.add('video-wrap');
+  videoWrap.classList.add('video-modal-wrapper');
   const close = document.createElement('div');
   close.classList.add('video-close');
   const videoIframe = document.createElement('video');
@@ -91,7 +91,7 @@ export function createVideoModal(main, url) {
   main.append(videoContainer);
 
   const closeButton = main.querySelector('.video-close');
-  const videoContainerDiv = main.querySelector('.video-container');
+  const videoContainerDiv = main.querySelector('.video-modal-container ');
   if (closeButton) {
     closeButton.addEventListener('click', (e) => {
       e.preventDefault();
@@ -106,18 +106,6 @@ export function createVideoModal(main, url) {
   }
 }
 
-export function decorateExternalLinks(main) {
-  main.querySelectorAll('a').forEach((a) => {
-    const url = new URL(a.href);
-    if (a.href.endsWith('.mp4')) {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        createVideoModal(main, url);
-      });
-    }
-  });
-}
-
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -126,7 +114,6 @@ export function decorateExternalLinks(main) {
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
-  decorateExternalLinks(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
