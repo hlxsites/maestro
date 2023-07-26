@@ -88,6 +88,7 @@
 .columns.banner.hero{
   padding-top: var(--spacer-layout-32);
   padding-bottom: var(--spacer-layout-32);
+  margin-top: inherit;
 }
 
 .columns.banner.hero > div {
