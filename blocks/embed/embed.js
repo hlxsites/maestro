@@ -36,7 +36,7 @@ const embedVimeo = (url, autoplay) => {
   const [, video] = url.pathname.split('/');
   const suffix = autoplay ? '?muted=1&autoplay=1' : '';
   const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://player.vimeo.com/video/537322975" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
+      <iframe src=iframe src="https://player.vimeo.com/video/${video}${suffix}"  style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
       frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen  
       title="Content from Vimeo" loading="lazy"></iframe>
     </div>`;
