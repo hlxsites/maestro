@@ -389,7 +389,6 @@ main .section.highlight {
 
 .section.secondary-banner .default-content-wrapper .button-container {
   margin: 0;
-  
   --button-background-color: #fff;
   --button-label-color: #00ada2;
 }
