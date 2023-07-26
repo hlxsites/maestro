@@ -43,53 +43,6 @@ function buildAutoBlocks(main) {
   }
 }
 
-export function createVideoModal(main, url) {
-  const videoContainer = document.createElement('div');
-  videoContainer.classList.add('video-container');
-  const videoWrap = document.createElement('div');
-  videoWrap.classList.add('video-wrap');
-  const close = document.createElement('div');
-  close.classList.add('video-close');
-  const videoIframe = document.createElement('video');
-  const videoSrc = document.createElement('source');
-  videoIframe.classList.add('video-iframe');
-  videoIframe.setAttribute('autoplay', '');
-  videoIframe.setAttribute('controls', '');
-  videoSrc.setAttribute('src', `${url}`);
-  videoSrc.setAttribute('type', 'video/mp4');
-  videoIframe.append(videoSrc);
-  videoWrap.append(close, videoIframe);
-  videoContainer.append(videoWrap);
-  main.append(videoContainer);
-
-  const closeButton = main.querySelector('.video-close');
-  const videoContainerDiv = main.querySelector('.video-container');
-  if (closeButton) {
-    closeButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      videoContainerDiv.remove();
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.keyCode === 27 || event.key === 'Escape') {
-        videoContainerDiv.remove();
-      }
-    });
-  }
-}
-
-export function decorateExternalLinks(main) {
-  main.querySelectorAll('a').forEach((a) => {
-    const url = new URL(a.href);
-    if (a.href.endsWith('.mp4')) {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        createVideoModal(main, url);
-      });
-    }
-  });
-}
-
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -98,7 +51,6 @@ export function decorateExternalLinks(main) {
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
-  decorateExternalLinks(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);

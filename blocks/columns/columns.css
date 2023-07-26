@@ -120,6 +120,61 @@
   text-align: center;
 }
 
+.columns.banner.hero .video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  /* stylelint-disable-next-line color-function-notation */
+  background-color: rgb(0,0,0,70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columns.banner.hero .video-wrap {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+}
+
+.columns.banner.hero .video-close {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  z-index: 0;
+  width: 16px;
+  height: 16px;
+  background: url('./icons/close.svg') center/20px no-repeat;
+}
+
+.columns.banner.hero .video-container video{
+  width: calc(100vw - 60px);
+  max-width: 1280px;
+}
+
+.columns.banner.hero a[href$=".mp4"]{
+  display: inline-block;
+  position: relative;
+}
+
+.columns.banner.hero a[href$=".mp4"]::after {
+  content: "";
+  position: absolute;
+  width:  68px;
+  height: 128px;
+  background: url('../../styles/icons/play.svg') center no-repeat;
+  background-size: contain; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  margin: auto;
+}
+
 /* Columns Banners & About Page Variant */
 
 .columns.banner.about > div:first-child {
@@ -188,6 +243,7 @@
   letter-spacing: var(  --letter-spacing-1);
   font-style: normal;
 }
+
 
 /* Columns Banner & Secondary Variant */
 .columns.banner.secondary .columns-img-col{
@@ -460,7 +516,7 @@ text-align: center;
 
   .columns.banner.about {
     margin-top: 0;
-}
+  }
 
   .columns.banner.about > div{
     gap:0;
@@ -524,23 +580,26 @@ text-align: center;
   }
 
   /* Columns Banner & Hero Variant */
-.columns.banner.hero > div {
+  .columns.banner.hero > div {
   flex-direction: row;
-}
+  }
 
-.columns.banner.hero p.button-container a {
-  display: inherit;
-  text-align: center;
-}
+  .columns.banner.hero p.button-container a {
+    display: inherit;
+    text-align: center;
+    }
 
-.columns.banner.hero h1{
-  font-size: 96px;
-}
+  .columns.banner.hero h1{
+    font-size: 96px;
+    }
 
-.columns.banner.hero p.button-container {
-  min-height: 48px;
-  float: left;
-  margin-left: 9px;
-}
+  .columns.banner.hero p.button-container {
+    min-height: 48px;
+    float: left;
+    margin-left: 9px;
+    }
 
+    .columns.banner.hero a[href$=".mp4"]::after {
+      width:  128px;
+    }
 }
