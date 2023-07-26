@@ -11,7 +11,14 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  toClassName,
+  getMetadata,
 } from './lib-franklin.js';
+
+/**
+ * manage the list of templates
+ */
+const TEMPLATE_LIST = ['insights'];
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -43,11 +50,32 @@ function buildAutoBlocks(main) {
   }
 }
 
+/**
+ * Run template specific decoration code.
+ * @param {Element} main The container element
+ */
+async function decorateTemplates(main) {
+  try {
+    const template = toClassName(getMetadata('template'));
+    const templates = TEMPLATE_LIST;
+    if (templates.includes(template)) {
+      const mod = await import(`../templates/${template}/${template}.js`);
+      loadCSS(`${window.hlx.codeBasePath}/templates/${template}/${template}.css`);
+      if (mod.default) {
+        await mod.default(main);
+      }
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('template loading failed', error);
+  }
+}
+
 export function createVideoModal(main, url) {
   const videoContainer = document.createElement('div');
-  videoContainer.classList.add('video-container');
+  videoContainer.classList.add('video-modal-container');
   const videoWrap = document.createElement('div');
-  videoWrap.classList.add('video-wrap');
+  videoWrap.classList.add('video-modal-wrapper');
   const close = document.createElement('div');
   close.classList.add('video-close');
   const videoIframe = document.createElement('video');
@@ -63,7 +91,7 @@ export function createVideoModal(main, url) {
   main.append(videoContainer);
 
   const closeButton = main.querySelector('.video-close');
-  const videoContainerDiv = main.querySelector('.video-container');
+  const videoContainerDiv = main.querySelector('.video-modal-container ');
   if (closeButton) {
     closeButton.addEventListener('click', (e) => {
       e.preventDefault();
@@ -78,18 +106,6 @@ export function createVideoModal(main, url) {
   }
 }
 
-export function decorateExternalLinks(main) {
-  main.querySelectorAll('a').forEach((a) => {
-    const url = new URL(a.href);
-    if (a.href.endsWith('.mp4')) {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        createVideoModal(main, url);
-      });
-    }
-  });
-}
-
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -98,7 +114,6 @@ export function decorateExternalLinks(main) {
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
-  decorateExternalLinks(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
@@ -114,6 +129,7 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    await decorateTemplates(main);
     decorateMain(main);
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);

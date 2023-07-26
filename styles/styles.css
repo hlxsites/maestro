@@ -304,7 +304,8 @@ main img {
   overflow: hidden;
 } */
 
-main .video-container {
+
+main .video-modal-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -318,7 +319,7 @@ main .video-container {
   justify-content: center;
 }
 
-main .video-wrap {
+main .video-modal-wrapper {
   position: relative;
   top: 0;
   left: 0;
@@ -336,27 +337,9 @@ main .video-close {
   background: url('./icons/close.svg') center/20px no-repeat;
 }
 
-main .video-container video{
+main .video-modal-container video{
   width: calc(100vw - 60px);
   max-width: 1280px;
-}
-
-main a[href$=".mp4"]{
-  display: inline-block;
-  position: relative;
-}
-
-main a[href$=".mp4"]::after {
-  content: "";
-  position: absolute;
-  width:  68px;
-  height: 128px;
-  background: url('./icons/play.svg') center no-repeat;
-  background-size: contain; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  margin: auto;
 }
 
 
@@ -365,10 +348,6 @@ main a[href$=".mp4"]::after {
     max-width: 1280px;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  main a[href$=".mp4"]::after {
-    width: 128px;
   }
 }
 
