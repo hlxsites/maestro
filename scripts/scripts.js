@@ -106,18 +106,6 @@ export function createVideoModal(main, url) {
   }
 }
 
-export function decorateExternalLinks(main) {
-  main.querySelectorAll('a').forEach((a) => {
-    const url = new URL(a.href);
-    if (a.href.endsWith('.mp4')) {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        createVideoModal(main, url);
-      });
-    }
-  });
-}
-
 /**
  * Decorates the main element.
  * @param {Element} main The main element
