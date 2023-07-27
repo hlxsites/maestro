@@ -367,9 +367,8 @@ main .section.gray-background{
   background-color: #f5f7f7;
 }
 
-
-main .section.hero-background{
-  background-color: #f5f7f7;
+main .section.blue-background{
+  background-color: var(--clr-blue);
 }
 
 .section.secondary-banner {
@@ -378,9 +377,7 @@ main .section.hero-background{
   max-width: 100%;
   flex-flow: row nowrap;
   justify-content: center;
-  padding-top: var(--spacer-layout-50);
-  padding-bottom: var(--spacer-layout-100);
-  background-color: var(--clr-blue);
+  padding: var(--spacer-layout-50) var(--spacer-layout-32) var(--spacer-layout-100);
 }
 
 .section.secondary-banner .default-content-wrapper {
@@ -395,7 +392,7 @@ main .section.hero-background{
 }
 
 .section.secondary-banner .default-content-wrapper > h1 {
-  font-family: var(--body-font-family);
+  font-family: var(--labg-text-medium);
   font-size: 14px;
   font-weight: var(--font-weight-heavy);
   line-height: var(--line-height-1-25);
@@ -406,7 +403,7 @@ main .section.hero-background{
 }
 
 .section.secondary-banner .default-content-wrapper > h2 {
-  font-family: var(--body-font-family);
+  font-family: var(--labg-text-light);
   font-size: var(--body-font-size-xl);
   line-height: var(--line-height-1);
   color: var(--clr-white);
@@ -415,7 +412,7 @@ main .section.hero-background{
 }
 
 .section.secondary-banner .default-content-wrapper > h2 > strong {
-  font-family: var(--body-font-family);
+  font-family: var( --ivar-display-semibold);
   font-weight: var(--font-weight-medium);
 }
 
