@@ -435,13 +435,13 @@ main .section.hero-background{
 .section.secondary-banner .default-content-wrapper .icon-manulife-white svg {
   max-width: 320px;
   max-height: 49px;
-  max-width: 100%;
   overflow: hidden;
   color: white;
 }
 
 .section.secondary-banner .default-content-wrapper .button-container {
   margin: 0;
+  
   --button-background-color: #fff;
   --button-label-color: #00ada2;
 }
