@@ -2,6 +2,7 @@ import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1280px)');
+const isMobile = window.matchMedia('(max-width: 768px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -53,7 +54,7 @@ function toggleAllNavSections(sections, expanded = false) {
  * @param {*} forceExpanded Optional param to force nav expand behavior when not null
  */
 function toggleMenu(nav, mobileNav, dNav, forceExpanded = null) {
-  const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';console.log(expanded);
+  const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');console.log(isDesktop.matches);
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
@@ -102,11 +103,10 @@ export default async function decorate(block) {
     const nav = document.createElement('nav');
     nav.id = 'nav';
     nav.innerHTML = html;    
-    const dNav = nav.querySelector('.navigation');console.log(dNav);
-    const sideNav = nav.querySelector('.sidenav');console.log(sideNav)
+    const dNav = nav.querySelector('.navigation');
+    const sideNav = nav.querySelector('.sidenav');
     const mobileNav = document.createElement('div');
-    mobileNav.className = 'hamburger-mobile';
-    sideNav.style.visibility ='hidden';
+    mobileNav.className = 'hamburger-mobile';    
     if (dNav) {
       dNav.querySelectorAll(':scope > div > div > ul > li').forEach((navitem) => {        
         if (dNav.querySelector('ul')) dNav.classList.add('nav-drop');
@@ -123,17 +123,40 @@ export default async function decorate(block) {
         });
       });
     }
+     // hamburger for mobile
+     const hamburger = document.createElement('div');
+     hamburger.classList.add('nav-hamburger');
+     hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+         <span class="nav-hamburger-icon"></span>
+       </button>`;
+     
     if(sideNav){
-      mobileNav.appendChild(sideNav.querySelector(':scope > div > div > ul'));
-    }
-    dNav.parentNode.appendChild(mobileNav);
-    // hamburger for mobile
-    const hamburger = document.createElement('div');
-    hamburger.classList.add('nav-hamburger');
-    hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-        <span class="nav-hamburger-icon"></span>
-      </button>`;
-    hamburger.addEventListener('click', () => toggleMenu(nav, mobileNav, dNav));
+      if(isMobile.matches) {
+        mobileNav.appendChild(sideNav.querySelector(':scope > div > div > ul'));
+        dNav.parentNode.appendChild(mobileNav);
+        hamburger.addEventListener('click', () => toggleMenu(nav, mobileNav, dNav));
+      } else {
+        sideNav.querySelectorAll(':scope > div > div').forEach((div) => {
+          const bgImage = div.querySelector('img');
+          if(bgImage){
+            div.className = 'sidenav-left image-appear-animation';
+            div.style.backgroundImage = `url('${bgImage.src}')`;
+            sideNav.querySelector('picture').remove();
+            const divText = document.createElement('div');
+            divText.className = 'text-left';
+            sideNav.querySelectorAll('p, h3').forEach(item => {
+              if(item.innerText != '') 
+                divText.append(item);                         
+            });
+            div.appendChild(divText);
+
+          }
+          else div.className = 'sidenav-right';
+        });
+        dNav.parentNode.appendChild(sideNav);
+        hamburger.addEventListener('click', () => toggleMenu(nav, sideNav, dNav));
+      }
+    }     
     dNav.parentNode.appendChild(hamburger);
     nav.setAttribute('aria-expanded', 'false');
     // prevent mobile nav behavior on window resize        

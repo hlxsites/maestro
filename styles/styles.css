@@ -28,6 +28,7 @@
   --button-label-hover-color: var(--button-label-color);
   --secondary-button-bg-color:  transparent;
   --button-background-color: var(--text-color);
+  --theme-color-primary: #e5d46d;
 
   /* fonts */
   --ivar-display-semibold: 'IvarDisplay Semibold', sans-serif;
