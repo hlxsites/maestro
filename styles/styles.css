@@ -342,6 +342,15 @@ main .video-modal-container video{
   max-width: 1280px;
 }
 
+main .divider {
+  display: block;
+  width: auto;
+  margin: var(--spacer-layout-16) 0;
+  border: 1px solid #ced1d1;
+  padding: inherit;
+}
+
+
 
 @media (min-width: 768px) {
   .section > div {

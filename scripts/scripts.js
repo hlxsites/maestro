@@ -38,12 +38,30 @@ function buildHeroBlock(main) {
 }
 
 /**
+ * Builds a page divider by adding divider or Divider in fixed-fonts eg. Courier New
+ * @param {Element} main The container element
+ */
+function buildPageDivider(main) {
+  const allPageDivider = main.querySelectorAll('code');
+
+  allPageDivider.forEach((el) => {
+    const alt = el.innerText.trim();
+    const lower = alt.toLowerCase();
+    if (lower === 'divider') {
+      el.innerText = '';
+      el.classList.add('divider');
+    }
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildPageDivider(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
