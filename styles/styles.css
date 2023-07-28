@@ -28,6 +28,7 @@
   --button-label-hover-color: var(--button-label-color);
   --secondary-button-bg-color:  transparent;
   --button-background-color: var(--text-color);
+  --theme-color-primary: #e5d46d;
 
   /* fonts */
   --ivar-display-semibold: 'IvarDisplay Semibold', sans-serif;
@@ -74,7 +75,7 @@
   --heading-font-size-xs: 16px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 140px;
 
   /* line height */
   --line-height-1: 1;
@@ -88,6 +89,7 @@
   --letter-spacing-05: 0.005em;
   --letter-spacing-1: 0.01em;
   --letter-spacing-2: 0.02em;
+  
 
    /* layout spacers */
    --spacer-layout-16: 16px;
