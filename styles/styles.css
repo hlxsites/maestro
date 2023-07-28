@@ -16,7 +16,7 @@
   --clr-gray: #919696;
   --clr-darkblue: #27292b;
   --clr-blue: #00ada2;
-  --text-color: #454547
+  --text-color: #454547;
   --link-color: var(--text-color);
   --link-hover-color: var(--clr-blue);
   --background-color: #ffff;
@@ -68,6 +68,7 @@
   /* heading sizes */
   --heading-font-size-xxl: 48px;
   --heading-font-size-xl: 40px;
+  --heading-font-size-ll: 36px;
   --heading-font-size-l: 32px;
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
@@ -228,6 +229,7 @@ button.primary {
 a.button:hover, a.button:focus, button:hover, button:focus  {
   background-color: var(--link-hover-color);
   cursor: pointer;
+  text-decoration: none;
 }
 
 button:focus {
@@ -304,6 +306,54 @@ main img {
   overflow: hidden;
 } */
 
+
+main .video-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  /* stylelint-disable-next-line color-function-notation */
+  background-color: rgb(0,0,0,70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .video-modal-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+}
+
+main .video-close {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  z-index: 0;
+  width: 16px;
+  height: 16px;
+  background: url('./icons/close.svg') center/20px no-repeat;
+}
+
+main .video-modal-container video{
+  width: calc(100vw - 60px);
+  max-width: 1280px;
+}
+
+main .divider {
+  display: block;
+  width: auto;
+  margin: var(--spacer-layout-16) 0;
+  border: 1px solid #ced1d1;
+  padding: inherit;
+}
+
+
+
 @media (min-width: 768px) {
   .section > div {
     max-width: 1280px;
@@ -328,7 +378,102 @@ main .section.gray-background{
   background-color: #f5f7f7;
 }
 
-
-main .section.hero-background{
-  background-color: #f5f7f7;
+main .section.blue-background{
+  background-color: var(--clr-blue);
 }
+
+.section.secondary-banner {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: var(--spacer-layout-50) var(--spacer-layout-32) var(--spacer-layout-100);
+}
+
+.section.secondary-banner .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.section.secondary-banner .default-content-wrapper > h1 {
+  font-family: var(--labg-text-medium);
+  font-size: 14px;
+  font-weight: var(--font-weight-heavy);
+  line-height: var(--line-height-1-25);
+  color: var(--clr-white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section.secondary-banner .default-content-wrapper > h2 {
+  font-family: var(--labg-text-light);
+  font-size: var(--body-font-size-xl);
+  line-height: var(--line-height-1);
+  color: var(--clr-white);
+  margin: 22px 0;
+  font-weight: var(--font-weight-light);
+}
+
+.section.secondary-banner .default-content-wrapper > h2 > strong {
+  font-family: var( --ivar-display-semibold);
+  font-weight: var(--font-weight-medium);
+}
+
+.section.secondary-banner .default-content-wrapper > h3 {
+  margin: 0;
+}
+
+.section.secondary-banner .default-content-wrapper > h4 {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-1-5);
+  color: var(--clr-white);
+  margin: 16px 0 28px;
+}
+
+.section.secondary-banner .default-content-wrapper .icon-manulife-white svg {
+  max-width: 320px;
+  max-height: 49px;
+  overflow: hidden;
+  color: var(--clr-white);
+}
+
+.section.secondary-banner .default-content-wrapper .button-container {
+  margin: 0;
+
+  --button-background-color: var(--clr-white);
+  --button-label-color: var(--clr-blue);
+}
+
+.section.secondary-banner .default-content-wrapper .button.primary {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xxs);
+  font-weight: var(--font-weight-heavy);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-button);
+  min-height: 48px;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: 2px;
+  background-color: var(--button-background-color);
+  border-color: var(--button-background-color);
+  color: var(--button-label-color);
+}
+
+@media (min-width: 768px) {
+  main .section.secondary-banner {
+    padding-top: var(--spacer-layout-100);
+    padding-bottom: var(--spacer-layout-100);
+  }
+}
+
+

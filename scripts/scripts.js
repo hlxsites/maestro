@@ -11,7 +11,14 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  toClassName,
+  getMetadata,
 } from './lib-franklin.js';
+
+/**
+ * manage the list of templates
+ */
+const TEMPLATE_LIST = ['insights'];
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -31,15 +38,89 @@ function buildHeroBlock(main) {
 }
 
 /**
+ * Builds a page divider by adding divider or Divider in fixed-fonts eg. Courier New
+ * @param {Element} main The container element
+ */
+function buildPageDivider(main) {
+  const allPageDivider = main.querySelectorAll('code');
+
+  allPageDivider.forEach((el) => {
+    const alt = el.innerText.trim();
+    const lower = alt.toLowerCase();
+    if (lower === 'divider') {
+      el.innerText = '';
+      el.classList.add('divider');
+    }
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildPageDivider(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
+  }
+}
+
+/**
+ * Run template specific decoration code.
+ * @param {Element} main The container element
+ */
+async function decorateTemplates(main) {
+  try {
+    const template = toClassName(getMetadata('template'));
+    const templates = TEMPLATE_LIST;
+    if (templates.includes(template)) {
+      const mod = await import(`../templates/${template}/${template}.js`);
+      loadCSS(`${window.hlx.codeBasePath}/templates/${template}/${template}.css`);
+      if (mod.default) {
+        await mod.default(main);
+      }
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('template loading failed', error);
+  }
+}
+
+export function createVideoModal(main, url) {
+  const videoContainer = document.createElement('div');
+  videoContainer.classList.add('video-modal-container');
+  const videoWrap = document.createElement('div');
+  videoWrap.classList.add('video-modal-wrapper');
+  const close = document.createElement('div');
+  close.classList.add('video-close');
+  const videoIframe = document.createElement('video');
+  const videoSrc = document.createElement('source');
+  videoIframe.classList.add('video-iframe');
+  videoIframe.setAttribute('autoplay', '');
+  videoIframe.setAttribute('controls', '');
+  videoSrc.setAttribute('src', `${url}`);
+  videoSrc.setAttribute('type', 'video/mp4');
+  videoIframe.append(videoSrc);
+  videoWrap.append(close, videoIframe);
+  videoContainer.append(videoWrap);
+  main.append(videoContainer);
+
+  const closeButton = main.querySelector('.video-close');
+  const videoContainerDiv = main.querySelector('.video-modal-container ');
+  if (closeButton) {
+    closeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      videoContainerDiv.remove();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.keyCode === 27 || event.key === 'Escape') {
+        videoContainerDiv.remove();
+      }
+    });
   }
 }
 
@@ -66,6 +147,7 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    await decorateTemplates(main);
     decorateMain(main);
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);

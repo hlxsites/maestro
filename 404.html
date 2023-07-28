@@ -29,36 +29,66 @@
       sampleRUM('404', { source: document.referrer, target: window.location.href });
     });
   </script>
-  <link rel="stylesheet" href="/styles/styles.css">
   <style>
-    main.error {
-      min-height: calc(100vh - var(--nav-height));
-      display: flex;
-      align-items: center;
-    }
+/* error page container */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 50vh;
+  text-align: center;
+}
 
-    main.error .error-number {
-      width: 100%;
-    }
+/* Responsive adjustments */
+@media (max-width: 1344px) {
+  .error-page {
+    margin: 0 var( --spacer-layout-32);
+  }
+}
 
-    main.error .error-number text {
-      font-family: var(--fixed-font-family);
-    }
+/* error page text */
+.error-page :is(h1, h2, h3, h4, h5, h6, p) {
+  font-family: var( --ivar-headline-medium);
+  font-size: var(  --heading-font-size-m);
+  line-height: var(--line-height-1-5);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* error page title text */
+.error-page-title {
+        font-size: var( --heading-font-size-ll);
+      }
+
+/* Responsive adjustments for the text */
+@media (min-width: 768px) {
+  .error-page :is(h1, h2, h3, h4, h5, h6, p) {
+    font-size: var( --heading-font-size-ll);
+  }
+}
+
+/* error page home button */
+.error-page-home-button {
+  margin-top: var( --spacer-layout-32);
+}
+
   </style>
+  <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/lazy-styles.css">
 </head>
 
 <body>
   <header></header>
-  <main class="error">
-    <div class="section">
-      <svg viewBox="1 0 38 18" class="error-number">
-        <text x="0" y="17">404</text>
-      </svg>
-      <h2 class="error-message">Page Not Found</h2>
-      <p class="button-container">
-        <a href="/" class="button secondary error-button-home">Go home</a>
-      </p>
+  <main>
+    <div class="error-page">
+      <h1 class="error-page-title">
+        <p>Looks like you got a little lost...</p>
+      </h1>
+      <a href="https://maestro.maark.com/" class="button primary error-page-home-button">GO TO HOMEPAGE</a>
     </div>
   </main>
   <footer></footer>
