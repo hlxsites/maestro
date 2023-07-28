@@ -18,12 +18,6 @@
 	margin: 0 0 24px;
 }
 
-@media (min-width: 1024px){
-	.tabs-control{
-		border-top: 1px solid #000;
-	}
-}
-
 
 .tab {
 	margin: 0;
