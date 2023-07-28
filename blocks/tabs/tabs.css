@@ -101,7 +101,7 @@
 .tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(18) > label > h2 > a {
 	color: #047f10;
     border-color: #047f10;
-    text-shadow: -0.4px -0.4px 0 #047f10, 0.4px 0.3px #047f10;
+    text-shadow: -0.4px -0.4px 0 #000000, 0.4px 0.3px #000000;
 }
 
 .tabs [type="radio"]:nth-of-type(1):checked ~ .contents-wrapper .contents:nth-of-type(1),
