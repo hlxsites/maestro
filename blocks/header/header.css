@@ -7,25 +7,22 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
-  
 }
 
 header nav > div:first-of-type {
   box-sizing: border-box;
   display: grid;
-  grid-template: 'brand navigation hamburger' var(--nav-height);  
+  grid-template: "brand navigation hamburger" var(--nav-height);
   align-items: center;
   gap: 0 2em;
   margin: auto;
   max-width: 1264px;
   height: var(--nav-height);
   padding: 0 1rem;
-  font-family: var(--body-font-family);  
+  font-family: var(--body-font-family);
 }
 
-
-
-header nav .sidenav{
+header nav .sidenav {
   display: none;
   visibility: hidden;
 }
@@ -37,11 +34,10 @@ header nav .logo {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
-  margin: 0;  
+  margin: 0;
   display: flex;
   z-index: 1;
 }
-
 
 header nav .logo svg {
   width: 196px;
@@ -50,13 +46,14 @@ header nav .logo svg {
 
 /* hamburger */
 header nav .nav-hamburger {
-  grid-area: hamburger;  
-  display: flex; 
+  grid-area: hamburger;
+  display: flex;
   flex-direction: row;
-  justify-content: flex-end;  
+  justify-content: flex-end;
   z-index: 1;
   position: relative;
-
+  margin-top: -18px;
+  margin-left: -6px;
 }
 
 header nav .nav-hamburger button {
@@ -78,13 +75,13 @@ header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
-  position: relative;  
+  position: relative;
   width: 20px;
 }
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   background: currentcolor;
 }
@@ -126,24 +123,23 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (max-width: 768px){
- 
+@media (max-width: 768px) {
   header nav > div:first-of-type {
     box-sizing: border-box;
     display: grid;
-    grid-template: 'brand hamburger' var(--nav-height);  
-    align-items: center;    
+    grid-template: "brand hamburger" var(--nav-height);
+    align-items: center;
     margin: auto;
     max-width: 768px;
     height: var(--nav-height);
     padding: 0 1rem;
-    font-family: var(--body-font-family);  
+    font-family: var(--body-font-family);
   }
 
-  header nav[aria-expanded="true"]  > div:first-of-type {
+  header nav[aria-expanded="true"] > div:first-of-type {
     grid-template:
-      'brand hamburger' var(--nav-height)
-      'mobile-nav mobile-nav' 1fr;
+      "brand hamburger" var(--nav-height)
+      "mobile-nav mobile-nav" 1fr;
     overflow-y: auto;
     min-height: 100vh;
   }
@@ -158,66 +154,73 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     flex: 1 1 auto;
     display: none;
     visibility: hidden;
-    background-color: var(--overlay-color);    
+    background-color: var(--overlay-color);
   }
-  
-  header nav[aria-expanded="true"]  .hamburger-mobile {
+
+  header nav[aria-expanded="true"] .hamburger-mobile {
     display: block;
     visibility: visible;
     align-self: center;
-    flex-direction: column;    
-    flex-grow: 1;   
-    flex-shrink: 0;    
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
     justify-content: center;
   }
-  
-  header nav  .hamburger-mobile ul  {
+
+  header nav .hamburger-mobile ul {
     list-style: none;
-    padding-left: 0;  
-  }
-  
-  header nav .hamburger-mobile ul > li:nth-child(4) {
-    margin-bottom: 23px;
-}
-
-  header nav  .hamburger-mobile ul > li >strong {
-    font-family: var(--ivar-headline-medium);
-    font-size: var(--heading-font-size-xl);
-    line-height: 1.75;
-    letter-spacing: .5px;    
-    color: var(--text-color);
+    padding-left: 0;
   }
 
-  header nav  .hamburger-mobile ul > li {
+  header nav .hamburger-mobile ul > li {
     font-family: var(--labg-text-light);
     font-size: var(--body-font-size-m);
     line-height: var(--line-height-1-5);
-    letter-spacing: .25px;   
+    letter-spacing: 0.25px;
     color: var(--text-color);
   }
-  
-  header nav  .hamburger-mobile ul > li > ul {
-    margin-top: 0;
-  }
-  
-  header nav  .hamburger-mobile ul > li > ul > li {
+
+  header nav .hamburger-mobile ul > li > ul > li {
     font-weight: 500;
   }
 
+  header nav .hamburger-mobile ul > li:nth-child(4) {
+    margin-bottom: 23px;
+  }
+
+  header nav .hamburger-mobile ul > li > strong {
+    font-family: var(--ivar-headline-medium);
+    font-size: var(--heading-font-size-xl);
+    line-height: 1.75;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+  }
+
+ 
+
+  header nav .hamburger-mobile ul > li > ul {
+    margin-top: 0;
+  }
+
+  
 }
 
-@media (min-width: 1280px){
-  header nav .sidenav, .hamburger-mobile{
+@media (min-width: 1280px) {
+  header nav .sidenav,
+  .hamburger-mobile {
     display: none;
     visibility: hidden;
   }
-  header nav .sidenav{
+
+  header nav .sidenav {
     grid-area: sidenav;
   }
-  header nav .logo {
-    top: 52px;   
-    left: 32px;    
+
+  header nav[aria-expanded="true"] .logo {   
+    left: 32px;
+    position: relative;
   }
+
   header nav .navigation {
     grid-area: navigation;
     flex: 1 1 auto;
@@ -225,13 +228,13 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     visibility: visible;
     background-color: var(--overlay-color);
   }
-  
+
   header nav[aria-expanded="true"] .navigation {
     display: none;
     visibility: hidden;
     align-self: start;
   }
-  
+
   header nav .navigation ul {
     display: flex;
     gap: 2em;
@@ -239,22 +242,22 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     font-size: var(--body-font-size-xs);
     list-style: none;
   }
-  
+
   header nav .navigation ul > li {
     flex: 0 1 auto;
     position: relative;
     font-family: var(--ivar-text-medium);
-    font-size: 16px;  
+    font-size: 16px;
     line-height: 1;
     color: #454547;
     letter-spacing: 0.04em;
   }
-  
+
   header nav .navigation > ul > li > ul {
     display: none;
     position: relative;
   }
-  
+
   header nav .navigation > ul > li[aria-expanded="true"] > ul {
     display: block;
     position: absolute;
@@ -265,9 +268,9 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     background-color: var(--highlight-background-color);
     white-space: initial;
   }
-  
+
   header nav .navigation > ul > li > ul::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -8px;
     left: 8px;
@@ -277,18 +280,18 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     border-right: 8px solid transparent;
     border-bottom: 8px solid var(--highlight-background-color);
   }
-  
+
   header nav .navigation > ul > li > ul > li {
     padding: 8px 0;
   }
-  
-  header nav .navigation ul > li.button{  
+
+  header nav .navigation ul > li.button {
     font-family: var(--body-font-family);
     font-size: var(--body-font-size-xxs);
     font-weight: var(--font-weight-heavy);
     line-height: var(--line-height-1);
-    letter-spacing: var(--letter-spacing-button);  
-    padding: 15px 22px;  
+    letter-spacing: var(--letter-spacing-button);
+    padding: 15px 22px;
     text-transform: uppercase;
     border-style: solid;
     border-width: 2px;
@@ -299,56 +302,57 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     margin-top: -15px;
   }
 
-  header nav[aria-expanded="true"]  > div:first-of-type {
+  header nav[aria-expanded="true"] > div:first-of-type {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  header nav[aria-expanded="true"] > div:first-of-type {
     grid-template:
-      'brand hamburger' var(--nav-height)
-      'sidenav sidenav';
+      "brand hamburger" var(--nav-height)
+      "sidenav sidenav";
     overflow-y: auto;
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    max-width: 100%;
-  } 
- 
-  
-  header nav[aria-expanded="true"]  .sidenav {
+  }
+
+  header nav[aria-expanded="true"] .sidenav {
     display: flex;
     visibility: visible;
     align-self: center;
-    flex-direction: column;    
-    flex-grow: 1;   
-    flex-shrink: 0;    
-    justify-content: center;    
-    margin-top: -140px;    
-  }
-  
-  header nav[aria-expanded="true"]  .sidenav > div{
-    display: grid;
-    grid-template: 'left right' 1fr;
-    grid-template-columns: 58% 42%;
-    width: 100%;
-    
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: center;
+    width: auto;
+    margin-top: -140px;
   }
 
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-left{
-    grid-area: left;     
+  header nav[aria-expanded="true"] .sidenav > div {
+    display: grid;
+    grid-template: "left right" 1fr;
+    grid-template-columns: 58% 42%;
+    width: 100%;
+  }
+
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left {
+    grid-area: left;
     width: 58%;
     height: 100vh;
     background-color: #454547;
-    background-size: cover;    
-    max-width: none;       
-    z-index: 0; 
-    
-  }  
+    background-size: cover;
+    max-width: none;
+    z-index: 0;
+  }
 
-  header nav[aria-expanded="true"]  .sidenav > div .image-appear-animation{
+  header nav[aria-expanded="true"] .sidenav > div .image-appear-animation {
     animation: image-fade-in-zoom-0 1s forwards cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-right{
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-right {
     grid-area: right;    
-    margin-right: 0;
-    margin-bottom: 60px;
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -357,58 +361,54 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     justify-content: center;
     padding-bottom: 1px;
     padding-left: 1px;
-    margin-top: 115px;
-    margin-left: 32px;
+    margin: 115px 0px 60px 58px;   
     overflow-x: hidden;
     overflow-y: auto;
   }
 
-  header nav  .sidenav ul  {
+  header nav .sidenav ul {
     list-style: none;
-    padding-left: 0;  
-  }
-  
-  header nav .sidenav ul > li:nth-child(4) {
-    margin-bottom: 23px;
-}
-
-  header nav  .sidenav ul > li >strong {
-    font-family: var(--ivar-headline-medium);
-    font-size: var(--heading-font-size-xl);
-    line-height: 1.75;
-    letter-spacing: .5px;    
-    color: var(--text-color);
+    padding-left: 0;
   }
 
-  header nav  .sidenav ul > li {
+  header nav .sidenav ul > li {
     font-family: var(--labg-text-light);
     font-size: var(--body-font-size-m);
     line-height: var(--line-height-1-5);
-    letter-spacing: .25px;   
+    letter-spacing: 0.25px;
     color: var(--text-color);
   }
-  
-  header nav  .sidenav ul > li > ul {
-    margin-top: 0;
-  }
-  
-  header nav  .sidenav ul > li > ul > li {
+
+  header nav .sidenav ul > li > ul > li {
     font-weight: 500;
   }
 
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-left .text-left{
+  header nav .sidenav ul > li:nth-child(4) {
+    margin-bottom: 23px;
+  }
+
+  header nav .sidenav ul > li > strong {
+    font-family: var(--ivar-headline-medium);
+    font-size: var(--heading-font-size-xl);
+    line-height: 1.75;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+  }
+
+   header nav .sidenav ul > li > ul {
+    margin-top: 0;
+  }
+
+  header nav .sidenav ul > li:last-of-type {
+    margin-top: 40px;
+  }
+
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left .text-left {
     right: 40px;
     left: 30px;
     max-width: 50%;
     position: absolute;
-    font-family: var(--labg-text-bold);    
-    font-size: 14px;    
-    line-height: var(--line-height-1-25);
-    color: var(--theme-color-primary);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    mix-blend-mode: screen;    
-    bottom: 35px;   
+    bottom: 35px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -416,18 +416,43 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     animation: appear 2s forwards cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3{
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left .text-left p {
     font-family: var(--labg-text-light);
-    font-size: 56px;    
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--clr-white);
+    letter-spacing: 0.57px;
+    margin: "0:0 50px";
+  }
+
+  header
+    nav[aria-expanded="true"]
+    .sidenav
+    > div
+    .sidenav-left
+    .text-left
+    p:nth-of-type(2) {
+    font-family: var(--labg-text-bold);
+    font-size: 14px;
+    line-height: var(--line-height-1-25);
+    color: var(--theme-color-primary);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    mix-blend-mode: screen;
+  }
+
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left h3 {
+    font-family: var(--labg-text-light);
+    font-size: 56px;
     line-height: var(--line-height-1);
     color: var(--clr-white);
     letter-spacing: 0.81px;
-    margin: 30px 0;    
-}
-header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3 strong{
-  font-family: var(--ivar-headline-semibold);
-  }  
+    margin: 30px 0;
+  }
 
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left h3 strong {
+    font-family: var(--ivar-headline-semibold);
+  }
 
   @keyframes image-fade-in-zoom-0 {
     from {
@@ -435,17 +460,45 @@ header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3 strong{
       height: 110vh;
       margin-top: -5vh;
       margin-left: -5%;
-      opacity: 0; }
-    to {
+      opacity: 0;
+    }
+    to
+    {
       width: 100%;
       height: 100vh;
       margin-top: 0;
       margin-left: 0;
-      opacity: 1; } }
-  
+      opacity: 1;
+    }
+  }
+
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left hr {
+    width: 30px;
+    height: 2px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--theme-color-primary);
+    margin-left: 0;
+  }
+
+  header nav[aria-expanded="true"] .sidenav > div .sidenav-left .text-left a {
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size-xxs);
+    font-weight: var(--font-weight-heavy);
+    line-height: var(--line-height-1);
+    letter-spacing: var(--letter-spacing-button);
+    padding: 15px 22px;
+    text-transform: uppercase;
+    border-style: solid;
+    border-width: 2px;
+    background-color: var(--primary-button-color);
+    border-color: var(--primary-button-color);
+    color: var(--button-label-color);
+    font-style: normal;
+    margin-top: -15px;
+  }
 }
 
-@media (min-width: 768px ) and (max-width:1280px){
+@media (min-width: 768px) and (max-width: 1280px) {
   header nav .logo {
     top: 52px;
     max-width: none;
@@ -453,13 +506,13 @@ header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3 strong{
     left: 32px;
     z-index: 1;
   }
-  
 
-  header nav .hamburger-mobile{
+  header nav .hamburger-mobile {
     display: none;
     visibility: hidden;
   }
-  header nav .navigation{
+
+  header nav .navigation {
     display: none;
     visibility: hidden;
   }
@@ -473,155 +526,11 @@ header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3 strong{
   header nav > div:first-of-type {
     box-sizing: border-box;
     display: grid;
-    grid-template: 'brand hamburger' var(--nav-height);  
-    align-items: center;    
-    margin: auto;    
+    grid-template: "brand hamburger" var(--nav-height);
+    align-items: center;
+    margin: auto;
     height: var(--nav-height);
     padding: 0 1rem;
-    font-family: var(--body-font-family);  
+    font-family: var(--body-font-family);
   }
-
-  header nav[aria-expanded="true"]  > div:first-of-type {
-    grid-template:
-      'brand hamburger' var(--nav-height)
-      'sidenav sidenav';
-    overflow-y: auto;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-  } 
- 
-  
-  header nav[aria-expanded="true"]  .sidenav {
-    display: flex;
-    visibility: visible;
-    align-self: center;
-    flex-direction: column;    
-    flex-grow: 1;   
-    flex-shrink: 0;    
-    justify-content: center;
-    width: auto;
-    margin-top: -140px;    
-  }
-  
-  header nav[aria-expanded="true"]  .sidenav > div{
-    display: grid;
-    grid-template: 'left right' 1fr;
-    grid-template-columns: 58% 42%;
-    width: 100%;
-    
-  }
-
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-left{
-    grid-area: left;     
-    width: 58%;
-    height: 100vh;
-    background-color: #454547;
-    background-size: cover;    
-    max-width: none;       
-    z-index: 0; 
-    
-  }  
-
-  header nav[aria-expanded="true"]  .sidenav > div .image-appear-animation{
-    animation: image-fade-in-zoom-0 1s forwards cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-right{
-    grid-area: right;    
-    margin-right: 0;
-    margin-bottom: 60px;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
-    justify-content: center;
-    padding-bottom: 1px;
-    padding-left: 1px;
-    margin-top: 115px;
-    margin-left: 32px;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
-  header nav  .sidenav ul  {
-    list-style: none;
-    padding-left: 0;  
-  }
-  
-  header nav .sidenav ul > li:nth-child(4) {
-    margin-bottom: 23px;
-}
-
-  header nav  .sidenav ul > li >strong {
-    font-family: var(--ivar-headline-medium);
-    font-size: var(--heading-font-size-xl);
-    line-height: 1.75;
-    letter-spacing: .5px;    
-    color: var(--text-color);
-  }
-
-  header nav  .sidenav ul > li {
-    font-family: var(--labg-text-light);
-    font-size: var(--body-font-size-m);
-    line-height: var(--line-height-1-5);
-    letter-spacing: .25px;   
-    color: var(--text-color);
-  }
-  
-  header nav  .sidenav ul > li > ul {
-    margin-top: 0;
-  }
-  
-  header nav  .sidenav ul > li > ul > li {
-    font-weight: 500;
-  }
-
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-left .text-left{
-    right: 40px;
-    left: 30px;
-    max-width: 50%;
-    position: absolute;
-    font-family: var(--labg-text-bold);    
-    font-size: 14px;    
-    line-height: var(--line-height-1-25);
-    color: var(--theme-color-primary);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    mix-blend-mode: screen;    
-    bottom: 35px;   
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: calc(100% - 120px - 35px);
-    animation: appear 2s forwards cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3{
-    font-family: var(--labg-text-light);
-    font-size: 56px;    
-    line-height: var(--line-height-1);
-    color: var(--clr-white);
-    letter-spacing: 0.81px;
-    margin: 30px 0;    
-}
-header nav[aria-expanded="true"]  .sidenav > div .sidenav-left h3 strong{
-  font-family: var(--ivar-headline-semibold);
-  }  
-
-
-  @keyframes image-fade-in-zoom-0 {
-    from {
-      width: 110%;
-      height: 110vh;
-      margin-top: -5vh;
-      margin-left: -5%;
-      opacity: 0; }
-    to {
-      width: 100%;
-      height: 100vh;
-      margin-top: 0;
-      margin-left: 0;
-      opacity: 1; } }
 }
