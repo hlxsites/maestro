@@ -30,8 +30,27 @@ const tabElementMap = {};
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */
+function calculateTabSectionCoordinates(main) {
+  let lastTabIndex = -1;
+  let foldedTabsCounter = 0;
+  const mainSections = [...main.childNodes];
+  main
+    .querySelectorAll('div.section[data-tab-title]')
+    .forEach((section) => {
+      const currentSectionIndex = mainSections.indexOf(section);
 
- async function autoBlockTabComponent(main, targetIndex, tabSections) {
+      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
+        // we construct a new tabs component, at the currentSectionIndex
+        lastTabIndex = currentSectionIndex;
+        foldedTabsCounter = 0;
+      }
+
+      foldedTabsCounter += 2;
+      calculateTabSectionCoordinate(main, lastTabIndex, section);
+    });
+}
+
+async function autoBlockTabComponent(main, targetIndex, tabSections) {
   // the display none will prevent a major CLS penalty.
   // franklin will remove this once the blocks are loaded.
   const section = document.createElement('div');
@@ -58,26 +77,6 @@ const tabElementMap = {};
   decorateBlock(tabsBlock);
   await loadBlock(tabsBlock);
   section.style.display = null;
-}
-
- function calculateTabSectionCoordinates(main) {
-  let lastTabIndex = -1;
-  let foldedTabsCounter = 0;
-  const mainSections = [...main.childNodes];
-  main
-    .querySelectorAll('div.section[data-tab-title]')
-    .forEach((section) => {
-      const currentSectionIndex = mainSections.indexOf(section);
-
-      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
-        // we construct a new tabs component, at the currentSectionIndex
-        lastTabIndex = currentSectionIndex;
-        foldedTabsCounter = 0;
-      }
-
-      foldedTabsCounter += 2;
-      calculateTabSectionCoordinate(main, lastTabIndex, section);
-    });
 }
 
 function aggregateTabSectionsIntoComponents(main) {
