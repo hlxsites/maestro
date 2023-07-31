@@ -59,7 +59,7 @@
 	border-top:none;
 }
 
-.tab > label > h2 a:focus {
+.tab > label > h2 a:active {
 	border-top: 3px solid #047f10;
 }
 
