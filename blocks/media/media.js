@@ -26,26 +26,14 @@ const getMP4Embed = (url) => `
   </video>
 `;
 
+// Function that returns HTML string for the media placeholder
 const getPlaceholderHTML = (url) => `
-
     <div class="media-player">
       <div class="media-player__wrapper">
        <video src="${url}" preload="auto" style="width: 100%; height: 100%;"></video>
       </div>
       <div class="media-player__overlay"></div>
-      <button class="Button media-player__play" type="button" aria-label="Play">
-      <svg width="128" height="129" viewBox="0 0 128 129" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path opacity=".9" fill-rule="evenodd" clip-rule="evenodd" d="M64 128.5c35.346 0 64-28.654 64-64 0-35.347-28.654-64-64-64-35.346 0-64 28.653-64 64 0 35.346 28.654 64 64 64z" fill="#27292B">
-          </path>
-          <mask id="a" fill="#fff">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M97.893 64.5L47.22 35.244v58.511L97.893 64.5zm-10.394 0L52.418 44.246v40.508L87.498 64.5z"></path>
-          </mask>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M97.893 64.5L47.22 35.244v58.511L97.893 64.5zm-10.394 0L52.418 44.246v40.508L87.498 64.5z" fill="#fff">
-          </path>
-          <path d="M97.893 64.5l3 5.196 9-5.196-9-5.197-3 5.197zM47.22 35.244l3-5.196-9-5.196v10.392h6zm0 58.511h-6v10.393l9-5.197-3-5.196zm5.198-49.51l3-5.195-9-5.197v10.393h6zM87.498 64.5l3 5.196 9-5.196-9-5.197-3 5.197zm-35.08 20.254h-6v10.392l9-5.196-3-5.196zm-3-35.312l35.08 20.254 6-10.392-35.08-20.255-6 10.393zm9 35.312V44.246h-12v40.508h12zm26.08-25.45l-35.08 20.254 6 10.392 35.08-20.254-6-10.392zM44.22 40.44l50.673 29.256 6-10.392L50.22 30.047l-6 10.392zm9 53.315V35.244h-12v58.511h12zm41.673-34.451L44.22 88.558l6 10.392 50.673-29.255-6-10.392z" fill="#fff" mask="url(#a)">
-          </path>
-        </svg>
-      </button>
+      <button class="Button media-player__play" type="button" aria-label="Play"></button>
     </div>
   `;
 
@@ -54,6 +42,7 @@ const loadMedia = (block, link, view) => {
     return;
   }
 
+  // Configuration for supported media types
   const MEDIA_CONFIG = [
     {
       match: ['vimeo'],
@@ -64,17 +53,27 @@ const loadMedia = (block, link, view) => {
       match: ['.mp4'],
       name: ['mp4'],
       embed: (url) => {
+        // If it's mp4 media and it's to be viewed in modal
         if (view && view === 'modal') {
           const placeholderHTML = getPlaceholderHTML(url);
           block.innerHTML = placeholderHTML;
           block.classList = 'block media media-mp4';
-          const video = block.querySelector('video');
+
+          // Add event listener for clicks to create or remove modal
           block.addEventListener('click', (e) => {
+            const { classList } = e.target;
             e.preventDefault();
-            createVideoModal(block, url);
+            const videoModal = block.querySelector('.video-modal-container');
+            if (!videoModal && !classList.contains('video-close')) {
+              createVideoModal(block, url);
+            } else if (!classList.contains('video-close') && !classList.contains('video-iframe')) {
+              videoModal.remove();
+            }
           });
+
           return placeholderHTML;
         }
+        // If it's not in modal view, just embed the mp4
         return getMP4Embed(url);
       },
     },

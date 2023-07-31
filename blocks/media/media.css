@@ -29,6 +29,7 @@ main .media .media-player__play {
     top: 50%;
     left: 50%;
     width: 68px;
+    height: 24px;
     pointer-events: none;
     transform: translate(-50%, -50%);
     background: none;
@@ -41,10 +42,13 @@ main .media .media-player__play {
     text-align: left;
     padding: 0;
     min-height: 24px; 
+    background: url('../../styles/icons/play.svg') center no-repeat;
+    background-size: contain;
 }
 
 @media (min-width: 768px) {
   main .media .media-player__play {
     width: 128px;
+    height: 129px;
   }
 }
