@@ -59,9 +59,6 @@
 	border-top:none;
 }
 
-.tab > label > h2 a:active {
-	border-top: 3px solid #047f10;
-}
 
 @media (min-width: 1024px){
 	.tab > label > h2 > a {
