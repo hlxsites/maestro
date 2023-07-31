@@ -29,11 +29,11 @@ const getMP4Embed = (url) => `
 // Function that returns HTML string for the media placeholder
 const getPlaceholderHTML = (url) => `
     <div class="media-player">
-      <div class="media-player__wrapper">
+      <div class="media-player-wrapper">
        <video src="${url}" preload="auto" style="width: 100%; height: 100%;"></video>
       </div>
-      <div class="media-player__overlay"></div>
-      <button class="Button media-player__play" type="button" aria-label="Play"></button>
+      <div class="media-player-overlay"></div>
+      <button class="Button media-player-play" type="button" aria-label="Play"></button>
     </div>
   `;
 

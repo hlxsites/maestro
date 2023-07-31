@@ -5,7 +5,7 @@ main .media .media-player {
     cursor: pointer;
 }
 
-main .media .media-player__wrapper {
+main .media .media-player-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ main .media .media-player__wrapper {
   height: 100%;
 }
 
-main .media .media-player__overlay {
+main .media .media-player-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@ main .media .media-player__overlay {
     height: 100%;
 }
 
-main .media .media-player__play {
+main .media .media-player-play {
     position: absolute;
     display: inline-flex;
     justify-content: center;
@@ -32,7 +32,6 @@ main .media .media-player__play {
     height: 24px;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    background: none;
     border-radius: 0;
     border: 0;
     user-select: none;
@@ -47,7 +46,7 @@ main .media .media-player__play {
 }
 
 @media (min-width: 768px) {
-  main .media .media-player__play {
+  main .media .media-player-play {
     width: 128px;
     height: 129px;
   }
