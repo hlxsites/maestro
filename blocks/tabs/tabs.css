@@ -54,12 +54,18 @@
 	border-top: 3px solid transparent;
 }
 
-.tabs-control .tab:hover > label > h2 > a,
 .tab > label > h2 > a:hover,
 .tab > label > h2 > a:focus,
-.tab:focus-within > label > h2 > a {
-	text-decoration: none
+.tabs-control .tab:hover > label > h2 > a {
+    text-decoration: none;
 }
+
+.tab:focus-within > label > h2 > a,
+.tabs-control .tab:hover > label > h2 > a:hover,
+.tabs-control .tab:hover > label > h2 > a:focus {
+    text-decoration: none;
+}
+
 
 .tab:hover label {
 	color: #000;
