@@ -1,5 +1,5 @@
 .tabs {
-    overflow-x: hidden; /* so we could easily hide the radio inputs */
+    overflow-x: auto; /* so we could easily hide the radio inputs */
 	margin: 32px 0;
 	padding-bottom: 16px;
 	border-bottom: 1px solid #ccc
@@ -12,24 +12,20 @@
 
 .tabs-control {
     display: flex;
-	justify-content: center;
+	justify-content: flex-start;
     list-style: none;
-	flex-flow: row wrap;
-    row-gap: 48px;
-	margin: 0 0 24px;
+	flex-wrap: nowrap
+    gap: 16px;
+	margin: 0;
+	overflow-x: auto;
 }
 
 
 .tab {
 	margin: 0;
     position: relative;
-    list-style: none;
     white-space: nowrap;
-    display: list-item;
-    top: 0;
-    float: none;
 }
-
 
 .tab > label,
 .tab > label > h2,
@@ -57,6 +53,7 @@
 .tab > label > h2 > a.active {
 	border-top: 3px solid transparent;
 }
+
 .tabs-control .tab:hover > label > h2 > a,
 .tab > label > h2 > a:hover,
 .tab > label > h2 > a:focus,
