@@ -60,6 +60,8 @@
     text-decoration: none;
 }
 
+.tab > label > h2 > a:hover,
+.tab > label > h2 > a:focus,
 .tab:focus-within > label > h2 > a,
 .tabs-control .tab:hover > label > h2 > a:hover,
 .tabs-control .tab:hover > label > h2 > a:focus {
