@@ -12,6 +12,7 @@
 
 .tabs-control {
     display: flex;
+	justify-content: center;
     list-style: none;
 	flex-flow: row wrap;
     row-gap: 48px;
