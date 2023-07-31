@@ -24,6 +24,8 @@ const TEMPLATE_LIST = ['insights'];
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
+const tabElementMap = {};
+
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -42,6 +44,37 @@ function aggregateTabSectionsIntoComponents(main) {
     await autoBlockTabComponent(main, tabComponentIndex - sectionIndexDelta, tabSections);
     sectionIndexDelta = tabSections.length - 1;
   });
+}
+
+async function autoBlockTabComponent(main, targetIndex, tabSections) {
+  // the display none will prevent a major CLS penalty.
+  // franklin will remove this once the blocks are loaded.
+  const section = document.createElement('div');
+  section.setAttribute('class', 'section');
+  section.setAttribute('style', 'display:none');
+  section.dataset.sectionStatus = 'loading';
+  const tabsBlock = document.createElement('div');
+  tabsBlock.setAttribute('class', 'tabs');
+
+  const tabContentsWrapper = document.createElement('div');
+  tabContentsWrapper.setAttribute('class', 'contents-wrapper');
+
+  tabsBlock.appendChild(tabContentsWrapper);
+
+  tabSections.forEach((tabSection) => {
+    tabSection.classList.remove('section');
+    tabSection.classList.add('contents');
+    // remove display: none
+    tabContentsWrapper.appendChild(tabSection);
+    tabSection.style.display = null;
+  });
+  main.insertBefore(section, main.childNodes[targetIndex]);
+  section.append(tabsBlock);
+  decorateBlock(tabsBlock);
+  await loadBlock(tabsBlock);
+  // unset display none manually. somehow in some race conditions it won't be picked up by lib-franklin.
+  // CLS is not affected
+  section.style.display = null;
 }
 
 function buildHeroBlock(main) {
@@ -86,10 +119,31 @@ function buildAutoBlocks(main) {
   }
 }
 
+function calculateTabSectionCoordinates(main) {
+  let lastTabIndex = -1;
+  let foldedTabsCounter = 0;
+  const mainSections = [...main.childNodes];
+  main
+    .querySelectorAll('div.section[data-tab-title]')
+    .forEach((section) => {
+      const currentSectionIndex = mainSections.indexOf(section);
+
+      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
+        // we construct a new tabs component, at the currentSectionIndex
+        lastTabIndex = currentSectionIndex;
+        foldedTabsCounter = 0;
+      }
+
+      foldedTabsCounter += 2;
+      calculateTabSectionCoordinate(main, lastTabIndex, section);
+    });
+}
+
 /**
  * Run template specific decoration code.
  * @param {Element} main The container element
  */
+
 async function decorateTemplates(main) {
   try {
     const template = toClassName(getMetadata('template'));
@@ -209,64 +263,12 @@ async function loadPage() {
   await loadLazy(document);
   loadDelayed();
 }
-const tabElementMap = {};
 
 function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
   if (!tabElementMap[lastTabBeginningIndex]) {
     tabElementMap[lastTabBeginningIndex] = [];
   }
   tabElementMap[lastTabBeginningIndex].push(targetTabSourceSection);
-}
-
-function calculateTabSectionCoordinates(main) {
-  let lastTabIndex = -1;
-  let foldedTabsCounter = 0;
-  const mainSections = [...main.childNodes];
-  main
-    .querySelectorAll('div.section[data-tab-title]')
-    .forEach((section) => {
-      const currentSectionIndex = mainSections.indexOf(section);
-
-      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
-        // we construct a new tabs component, at the currentSectionIndex
-        lastTabIndex = currentSectionIndex;
-        foldedTabsCounter = 0;
-      }
-
-      foldedTabsCounter += 2;
-      calculateTabSectionCoordinate(main, lastTabIndex, section);
-    });
-}
-
-async function autoBlockTabComponent(main, targetIndex, tabSections) {
-  // the display none will prevent a major CLS penalty.
-  // franklin will remove this once the blocks are loaded.
-  const section = document.createElement('div');
-  section.setAttribute('class', 'section');
-  section.setAttribute('style', 'display:none');
-  section.dataset.sectionStatus = 'loading';
-  const tabsBlock = document.createElement('div');
-  tabsBlock.setAttribute('class', 'tabs');
-
-  const tabContentsWrapper = document.createElement('div');
-  tabContentsWrapper.setAttribute('class', 'contents-wrapper');
-
-  tabsBlock.appendChild(tabContentsWrapper);
-
-  tabSections.forEach((tabSection) => {
-    tabSection.classList.remove('section');
-    tabSection.classList.add('contents');
-    // remove display: none
-    tabContentsWrapper.appendChild(tabSection);
-    tabSection.style.display = null;
-  });
-  main.insertBefore(section, main.childNodes[targetIndex]);
-  section.append(tabsBlock);
-  decorateBlock(tabsBlock);
-  await loadBlock(tabsBlock);
-  // unset display none manually. somehow in some race conditions it won't be picked up by lib-franklin.
-  // CLS is not affected
-  section.style.display = null;
 }
 
 loadPage();
