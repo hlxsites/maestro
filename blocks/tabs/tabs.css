@@ -35,6 +35,15 @@
 .tab > label > h2 > a {
 	font-size: 24px;
 	cursor: pointer;
+	display: block;
+    width: 100%;
+    font-weight: 300;
+    line-height: 135%;
+    padding: 16px;
+    border-bottom: 3px solid transparent;
+    box-sizing: border-box;
+    /* Change text-shadow to box-shadow */
+    box-shadow: 0.4px 0.4px 0 transparent, -0.4px -0.3px transparent;
 }
 
 .tab > label > h2 {
