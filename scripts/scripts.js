@@ -31,22 +31,7 @@ const tabElementMap = {};
  * @param {Element} main The container element
  */
 
-function aggregateTabSectionsIntoComponents(main) {
-  calculateTabSectionCoordinates(main);
-
-  // when we aggregate tab sections into a tab autoblock, the index get's lower.
-  // say we have 3 tabs starting at index 10, 12 and 14. and then 3 tabs at 18, 20 and 22.
-  // when we fold the first 3 into 1, those will start at index 10. But the other 3 should now
-  // start at 6 instead of 18 because 'removed' 2 sections.
-  let sectionIndexDelta = 0;
-  Object.keys(tabElementMap).map(async (tabComponentIndex) => {
-    const tabSections = tabElementMap[tabComponentIndex];
-    await autoBlockTabComponent(main, tabComponentIndex - sectionIndexDelta, tabSections);
-    sectionIndexDelta = tabSections.length - 1;
-  });
-}
-
-async function autoBlockTabComponent(main, targetIndex, tabSections) {
+ async function autoBlockTabComponent(main, targetIndex, tabSections) {
   // the display none will prevent a major CLS penalty.
   // franklin will remove this once the blocks are loaded.
   const section = document.createElement('div');
@@ -72,9 +57,42 @@ async function autoBlockTabComponent(main, targetIndex, tabSections) {
   section.append(tabsBlock);
   decorateBlock(tabsBlock);
   await loadBlock(tabsBlock);
-  // unset display none manually. somehow in some race conditions it won't be picked up by lib-franklin.
-  // CLS is not affected
   section.style.display = null;
+}
+
+ function calculateTabSectionCoordinates(main) {
+  let lastTabIndex = -1;
+  let foldedTabsCounter = 0;
+  const mainSections = [...main.childNodes];
+  main
+    .querySelectorAll('div.section[data-tab-title]')
+    .forEach((section) => {
+      const currentSectionIndex = mainSections.indexOf(section);
+
+      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
+        // we construct a new tabs component, at the currentSectionIndex
+        lastTabIndex = currentSectionIndex;
+        foldedTabsCounter = 0;
+      }
+
+      foldedTabsCounter += 2;
+      calculateTabSectionCoordinate(main, lastTabIndex, section);
+    });
+}
+
+function aggregateTabSectionsIntoComponents(main) {
+  calculateTabSectionCoordinates(main);
+
+  // when we aggregate tab sections into a tab autoblock, the index get's lower.
+  // say we have 3 tabs starting at index 10, 12 and 14. and then 3 tabs at 18, 20 and 22.
+  // when we fold the first 3 into 1, those will start at index 10. But the other 3 should now
+  // start at 6 instead of 18 because 'removed' 2 sections.
+  let sectionIndexDelta = 0;
+  Object.keys(tabElementMap).map(async (tabComponentIndex) => {
+    const tabSections = tabElementMap[tabComponentIndex];
+    await autoBlockTabComponent(main, tabComponentIndex - sectionIndexDelta, tabSections);
+    sectionIndexDelta = tabSections.length - 1;
+  });
 }
 
 function buildHeroBlock(main) {
@@ -117,26 +135,6 @@ function buildAutoBlocks(main) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
-}
-
-function calculateTabSectionCoordinates(main) {
-  let lastTabIndex = -1;
-  let foldedTabsCounter = 0;
-  const mainSections = [...main.childNodes];
-  main
-    .querySelectorAll('div.section[data-tab-title]')
-    .forEach((section) => {
-      const currentSectionIndex = mainSections.indexOf(section);
-
-      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
-        // we construct a new tabs component, at the currentSectionIndex
-        lastTabIndex = currentSectionIndex;
-        foldedTabsCounter = 0;
-      }
-
-      foldedTabsCounter += 2;
-      calculateTabSectionCoordinate(main, lastTabIndex, section);
-    });
 }
 
 /**
