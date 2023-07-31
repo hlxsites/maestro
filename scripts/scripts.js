@@ -12,7 +12,7 @@ import {
   loadBlocks,
   loadCSS,
   decorateBlock,
-  loadBlock, updateSectionsStatus,
+  loadBlock,
   toClassName,
   getMetadata,
 } from './lib-franklin.js';
@@ -28,6 +28,22 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */
+
+function aggregateTabSectionsIntoComponents(main) {
+  calculateTabSectionCoordinates(main);
+
+  // when we aggregate tab sections into a tab autoblock, the index get's lower.
+  // say we have 3 tabs starting at index 10, 12 and 14. and then 3 tabs at 18, 20 and 22.
+  // when we fold the first 3 into 1, those will start at index 10. But the other 3 should now
+  // start at 6 instead of 18 because 'removed' 2 sections.
+  let sectionIndexDelta = 0;
+  Object.keys(tabElementMap).map(async (tabComponentIndex) => {
+    const tabSections = tabElementMap[tabComponentIndex];
+    await autoBlockTabComponent(main, tabComponentIndex - sectionIndexDelta, tabSections);
+    sectionIndexDelta = tabSections.length - 1;
+  });
+}
+
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
@@ -193,7 +209,7 @@ async function loadPage() {
   await loadLazy(document);
   loadDelayed();
 }
-const tabElementMap ={};
+const tabElementMap = {};
 
 function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
   if (!tabElementMap[lastTabBeginningIndex]) {
@@ -207,19 +223,19 @@ function calculateTabSectionCoordinates(main) {
   let foldedTabsCounter = 0;
   const mainSections = [...main.childNodes];
   main
-      .querySelectorAll('div.section[data-tab-title]')
-      .forEach((section) => {
-        const currentSectionIndex = mainSections.indexOf(section);
+    .querySelectorAll('div.section[data-tab-title]')
+    .forEach((section) => {
+      const currentSectionIndex = mainSections.indexOf(section);
 
-        if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
-          // we construct a new tabs component, at the currentSectionIndex
-          lastTabIndex = currentSectionIndex;
-          foldedTabsCounter = 0;
-        }
+      if (lastTabIndex < 0 || (currentSectionIndex - foldedTabsCounter) !== lastTabIndex) {
+        // we construct a new tabs component, at the currentSectionIndex
+        lastTabIndex = currentSectionIndex;
+        foldedTabsCounter = 0;
+      }
 
-        foldedTabsCounter += 2;
-        calculateTabSectionCoordinate(main, lastTabIndex, section);
-      });
+      foldedTabsCounter += 2;
+      calculateTabSectionCoordinate(main, lastTabIndex, section);
+    });
 }
 
 async function autoBlockTabComponent(main, targetIndex, tabSections) {
@@ -252,21 +268,5 @@ async function autoBlockTabComponent(main, targetIndex, tabSections) {
   // CLS is not affected
   section.style.display = null;
 }
-function aggregateTabSectionsIntoComponents(main) {
-  calculateTabSectionCoordinates(main);
-
-  // when we aggregate tab sections into a tab autoblock, the index get's lower.
-  // say we have 3 tabs starting at index 10, 12 and 14. and then 3 tabs at 18, 20 and 22.
-  // when we fold the first 3 into 1, those will start at index 10. But the other 3 should now
-  // start at 6 instead of 18 because 'removed' 2 sections.
-  let sectionIndexDelta = 0;
-  Object.keys(tabElementMap).map(async (tabComponentIndex) => {
-    const tabSections = tabElementMap[tabComponentIndex];
-    await autoBlockTabComponent(main, tabComponentIndex - sectionIndexDelta, tabSections);
-    sectionIndexDelta = tabSections.length - 1;
-  });
-}
-
-
 
 loadPage();

@@ -48,6 +48,8 @@ function generateHiddenInput(tabSectionIndex, presentTabContents, block) {
   }
 }
 
+
+
 function generateTabNav(tabSectionIndex, presentTabContents) {
   const ul = document.createElement('ul');
   ul.setAttribute('class', 'tabs-control');
