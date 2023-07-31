@@ -33,6 +33,15 @@
 .tab > label,
 .tab > label > h2,
 .tab > label > h2 > a {
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.tab > label > h2 {
+	margin-bottom: 0;
+}
+
+.tab > label > h2 > a {
     display: block;
     width: 100%;
     font-weight: 300;
@@ -41,31 +50,20 @@
     border-bottom: 3px solid transparent;
     box-sizing: border-box;
     /* Change text-shadow to box-shadow and update vertical offset values */
-    box-shadow: -0.4px -0.4px 0 transparent, 0.4px 0.4px transparent;
+    box-shadow: 0px -3px 0px #047f10;
     /* Change position to relative */
     position: relative;
     font-size: 24px;
+    /* Add a positive z-index to make sure the line appears above the text */
+    z-index: 1;
 }
 
-.tab > label > h2 {
-	margin-bottom: 0;
+/* Update the hover style if necessary */
+.tab > label > h2 > a:hover {
+    text-decoration: none;
+    /* You can add other hover effects here */
 }
 
-.tab > label > h2 > a {
-	display: block;
-    width: 100%;
-    font-weight: 300;
-    line-height: 135%;
-    padding: 16px;
-    border-bottom: 3px solid transparent;
-    box-sizing: border-box;
-    text-shadow: -0.4px -0.4px 0 transparent,0.4px 0.3px transparent;
-	font-size: 24px;
-}
-
-.tab > label > h2 > a:hover{
-	text-decoration: none;
-}
 
 @media (min-width: 1024px){
 	.tab > label > h2 > a {
