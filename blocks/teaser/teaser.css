@@ -1,0 +1,155 @@
+.teaser{
+    display: block;
+    position: relative;
+}
+
+.teaser .teaser-badge{
+    font-family: var(--ivar-headline-medium);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #27292b;
+    letter-spacing: 0.03em;
+    padding: 0 0 9px;
+    font-style: italic;
+    border-bottom: 1px solid #454547;
+    margin: 16px 0 0;
+}
+
+.teaser .teaser-badge span{
+    font-family: var(--labg-text-medium);
+    font-style: normal;
+    color: #00ada2;
+}
+
+.teaser .teaser-link{
+    font-family: var(--labg-text-black);
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.125;
+    color: #454547;
+    letter-spacing: -0.01em;
+    max-width: 662px;
+    padding-top: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-height: 24px;
+}
+
+.teaser .teaser-link:hover{
+    text-decoration:underline;
+    text-decoration-color: #00ada2;
+    text-decoration-thickness: 4px;
+}
+
+.teaser .teaser-description{
+    font-family: var(--ivar-headline-medium);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.33;
+    color: #7e7e81;
+    letter-spacing: 0.02em;
+    max-width: 318px;
+    margin: 8px 0 0;
+}
+
+.teaser .teaser-author{
+    margin: 42px 0 0;
+}
+
+.teaser .teaser-authorwords{
+    font-family: var(--ivar-headline-medium);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #454547;
+    letter-spacing: 0.03em;
+    font-style: italic;
+}
+
+.teaser .teaser-authorname{
+    font-family: var(--labg-text-medium);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #454547;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.teaser .teaser-authortitle{
+    font-family: var(--labg-text-thin);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.33;
+    color: #454547;
+    letter-spacing: 0.01em;
+    display: none;
+}
+
+.teaser .teaser-image img{
+    padding: 24px 0 0;
+    height: 144px;
+}
+
+
+@media (min-width: 768px){
+.teaser .teaser-badge {
+    font-size: 18px;
+}
+
+.teaser .teaser-description{
+    max-width: 428px;
+    margin: 14px 0 0;
+    font-size: 16px;
+}
+
+.teaser .teaser-authorwords,
+.teaser .teaser-authorname,
+.teaser .teaser-authortitle{
+    font-size: 18px;
+    float: left;
+}
+
+.teaser .teaser-authorname,
+.teaser .teaser-authortitle{
+padding-left: 5px;
+}
+
+.teaser .teaser-authortitle{
+    display: block;
+}
+
+.teaser .teaser-image img{
+    padding: 36px 0 0;
+    height: 268px;
+}
+
+
+}
+
+@media (min-width: 1280px){
+.teaser .teaser-badge {
+    padding: 0 0 15px;
+}
+
+.teaser .teaser-link{
+    max-width: 1024px;
+    margin: 58px 0 0;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.teaser .teaser-description{
+    max-width: 1024px;
+    margin: 16px 0 0;
+    font-size: 22px;
+    line-height: 125%;
+}
+
+.teaser .teaser-image img{
+    padding: 50px 0 0;
+    height: 500px;
+}
+}
