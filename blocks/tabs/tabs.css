@@ -14,7 +14,7 @@
     display: flex;
 	justify-content: flex-start;
     list-style: none;
-	flex-wrap: nowrap
+	flex-wrap: nowrap;
     gap: 16px;
 	margin: 0;
 	overflow-x: auto;
@@ -62,7 +62,7 @@
 }
 
 .tab:hover label {
-	color: #333;
+	color: #000;
 }
 
 .tab > label > h2 > a:hover:not(.active):hover{
