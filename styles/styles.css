@@ -300,11 +300,11 @@ main img {
   width: 24px;
 } */
 
-/* .icon svg {
+.icon svg {
   height: 100%;
   width: 100%;
   overflow: hidden;
-} */
+}
 
 
 main .video-modal-container {
