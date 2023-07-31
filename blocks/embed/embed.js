@@ -6,7 +6,7 @@ const getDefaultEmbed = (url) => `<div style="left: 0; width: 100%; height: 0; p
 
 const embedVimeo = (url, autoplay) => {
   const [, video] = url.pathname.split('/');
-  const suffix = autoplay ? '?muted=1&autoplay=0' : '';
+  const suffix = autoplay ? '?muted=1&autoplay=1' : '';
   const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
       <iframe src="https://player.vimeo.com/video/${video}${suffix}" 
       style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
@@ -27,6 +27,7 @@ const loadEmbed = (block, link, autoplay) => {
       embed: embedVimeo,
     },
   ];
+const autoplay = false;
 
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
