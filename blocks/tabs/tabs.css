@@ -33,17 +33,18 @@
 .tab > label,
 .tab > label > h2,
 .tab > label > h2 > a {
-	font-size: 24px;
-	cursor: pointer;
-	display: block;
+    display: block;
     width: 100%;
     font-weight: 300;
     line-height: 135%;
     padding: 16px;
     border-bottom: 3px solid transparent;
     box-sizing: border-box;
-    /* Change text-shadow to box-shadow */
-    box-shadow: 0.4px 0.4px 0 transparent, -0.4px -0.3px transparent;
+    /* Change text-shadow to box-shadow and update vertical offset values */
+    box-shadow: -0.4px -0.4px 0 transparent, 0.4px 0.4px transparent;
+    /* Change position to relative */
+    position: relative;
+    font-size: 24px;
 }
 
 .tab > label > h2 {
