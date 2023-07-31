@@ -58,10 +58,13 @@
 	border-top: 3px solid transparent;
 }
 .tab > label > h2 > a:hover,
-.tab > label > h2 > a:focus {
+.tab > label > h2 > a:focus,
+.tab:focus-within > label > h2 > a {
 	text-decoration: none
 }
-
+.tab:focus-within > label > h2 > a {
+	border-top: 3px solid;
+}
 @media (min-width: 1024px){
 	.tab > label > h2 > a {
 		padding: 24px;
