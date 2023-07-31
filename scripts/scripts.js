@@ -31,7 +31,7 @@ const tabElementMap = {};
  * @param {Element} main The container element
  */
 
- function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
+function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
   if (!tabElementMap[lastTabBeginningIndex]) {
     tabElementMap[lastTabBeginningIndex] = [];
   }
