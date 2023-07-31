@@ -27,7 +27,6 @@ const loadEmbed = (block, link, autoplay) => {
       embed: embedVimeo,
     },
   ];
-const autoplay = false;
 
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
