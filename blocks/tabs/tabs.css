@@ -42,36 +42,16 @@
 }
 
 .tab > label > h2 > a {
-    /* Existing styles */
-    display: block;
+	display: block;
     width: 100%;
     font-weight: 300;
     line-height: 135%;
     padding: 16px;
     border-bottom: 3px solid transparent;
     box-sizing: border-box;
-    font-size: 24px;
-    /* Remove the text-shadow property as it is not needed for the line */
-    text-shadow: none;
-    /* Add a positive z-index to make sure the line appears above the text */
-    z-index: 1;
-    /* Set position to relative to position the ::after pseudo-element */
-    position: relative;
+    text-shadow: -0.4px -0.4px 0 transparent,0.4px 0.3px transparent;
+	font-size: 24px;
 }
-
-.tab > label > h2 > a::after {
-    /* Create the green line above the text buttons using ::after */
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #047f10; /* Green color */
-    /* Adjust the z-index to make sure the line appears above the button */
-    z-index: -1;
-}
-
 
 .tab > label > h2 > a:hover{
 	text-decoration: none;
