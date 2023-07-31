@@ -4,7 +4,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: var(--spacer-layout-32);
+  grid-gap: 64px;
 }
 
 .cards > ul > li {
@@ -39,7 +39,7 @@
 
 .cards.features .cards-card-body h3{
   font-family: var(--labg-text-thin);
-  font-size: var(--heading-font-size-l);
+  font-size: 32px;
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-1);
   color: var(--clr-blue);
