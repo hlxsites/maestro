@@ -54,7 +54,8 @@
 	font-size: 16px;
 }
 
-.tab > label > h2 > a:hover{
+.tab > label > h2 > a:hover,
+.tab > label > h2 > a:focus {
 	text-decoration: none;
 	border-top:none;
 }
