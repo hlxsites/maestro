@@ -54,13 +54,15 @@
 	font-size: 16px;
 }
 
-.tab > label > h2 > a:hover:not(.active){
-	border-top: 3px solid transparent;
-}
-
 .tab > label > h2 > a.active {
 	border-top: 3px solid transparent;
 }
+
+.tab > label > h2 > a:hover:not(.active):hover{
+	border-top: 3px solid transparent;
+}
+
+
 
 .tab > label > h2 > a:hover,
 .tab > label > h2 > a:focus,
