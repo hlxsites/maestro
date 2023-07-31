@@ -30,6 +30,14 @@ const tabElementMap = {};
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */
+
+ function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
+  if (!tabElementMap[lastTabBeginningIndex]) {
+    tabElementMap[lastTabBeginningIndex] = [];
+  }
+  tabElementMap[lastTabBeginningIndex].push(targetTabSourceSection);
+}
+
 function calculateTabSectionCoordinates(main) {
   let lastTabIndex = -1;
   let foldedTabsCounter = 0;
@@ -259,13 +267,6 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-}
-
-function calculateTabSectionCoordinate(main, lastTabBeginningIndex, targetTabSourceSection) {
-  if (!tabElementMap[lastTabBeginningIndex]) {
-    tabElementMap[lastTabBeginningIndex] = [];
-  }
-  tabElementMap[lastTabBeginningIndex].push(targetTabSourceSection);
 }
 
 loadPage();
