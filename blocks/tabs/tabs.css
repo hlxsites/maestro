@@ -107,7 +107,7 @@
 .tabs [type="radio"]:nth-of-type(2):checked ~ .tabs-control .tab:nth-of-type(16) > label > h2 > a,
 .tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(17) > label > h2 > a,
 .tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(18) > label > h2 > a {
-	color: #07d21b;
+	color: #040404;
     border-color: #07d21b;
     text-shadow: -0.4px -0.4px 0 #000000, 0.4px 0.3px #000000;
 }
