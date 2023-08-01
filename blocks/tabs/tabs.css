@@ -91,14 +91,6 @@
     .tabs-control {
         border-bottom: none; /* Remove the bottom border on mobile */
     }
-    
-	.tab:nth-child(1){
-		order: 1;
-	}
-	
-    .tab > label > h2 > a {
-        border-bottom: none; /* Remove the bottom border on mobile */
-    }
 	
 .contents-wrapper .contents {
 	display: none;
