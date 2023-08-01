@@ -92,6 +92,14 @@
         border-bottom: none; /* Remove the bottom border on mobile */
     }
     
+    .tab {
+        order: 2; /* Change the visual order of tabs on mobile */
+    }
+
+    /* Style the "Listing Funds" tab to appear as the first tab on mobile */
+    #tab-listing-funds-label {
+        order: 1;
+    }
     .tab > label > h2 > a {
         border-bottom: none; /* Remove the bottom border on mobile */
     }
