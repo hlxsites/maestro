@@ -10,7 +10,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,css}": "npm run lint"
+    "*.js": "npm run lint:js",
+    "*.css": "npm run lint:css"
   },
   "repository": {
     "type": "git",
