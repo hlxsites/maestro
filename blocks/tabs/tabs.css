@@ -92,7 +92,8 @@
         border-bottom: none; /* Remove the bottom border on mobile */
         display: flex;
         flex-wrap: nowrap;
-        overflow-x:auto;       
+        overflow-x:auto;
+        justify-content: flex-start;       
     }
 
     .tab {
