@@ -74,6 +74,9 @@
 @media (min-width: 768px) {
     .tabs-control {
         justify-content: center; /* Center the tabs on desktop */
+		padding: 24px;
+		border-top: 3px solid transparent;
+		border-bottom: none;
     }
     
     .tab > label > h2 > a {
