@@ -91,13 +91,13 @@
     .tabs-control {
         border-bottom: none; /* Remove the bottom border on mobile */
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;        
+        flex-wrap: nowrap;
+        overflow-x:auto;       
     }
 
     .tab {
         order: 2;
-        flex: 1 0 100%;
+        flex: 0 0 auto;
     }
 
    #tab-listing-funds-label {
