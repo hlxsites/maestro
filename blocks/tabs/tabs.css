@@ -15,11 +15,10 @@
 	justify-content: center;
     list-style: none;
 	flex-wrap: nowrap;
-    gap: 16px;
+    gap: 3px;
 	margin: 0;
 	overflow-x: auto;
 }
-
 
 .tab {
 	margin: 0;
@@ -65,10 +64,15 @@
 	color: #333;
 }
 
-
 .tab > label > h2 > a:hover:not(.active) {
 	border-top: 3px solid transparent;
 }
+
+.tabs-control .tab > label > h2 > a:not(.active):hover {
+    color: #000 !important; /* Black color */
+    text-shadow: -0.3px 0 black, 0 0.3px black, 0.3px 0 black, 0 -0.3px black;
+}
+
 
 /* Media query for desktop */
 @media (min-width: 768px) {
