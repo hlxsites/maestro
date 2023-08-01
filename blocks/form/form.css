@@ -147,6 +147,10 @@ main .form {
     padding:inherit;
   }
 
+  main .contact-us{
+    padding: 60px var(--spacer-layout-32);
+  }
+
   main .contact-us h2,
   main .request-demo h2{
     font-size: 40px;
@@ -255,13 +259,13 @@ main .form {
     }
 
     main .contact-us{
-        display: flex;
-        padding-right: var(--spacer-layout-32);
-        padding-left: var(--spacer-layout-32);
-        gap: var(--spacer-layout-32);
-        max-width: 1280px;
-        margin: 0 auto;
-      }
+      display: flex;
+      gap: var(--spacer-layout-32);
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-bottom: 210px;
+      padding-bottom: 126px;
+    }
 
      main .contact-us > div{
         flex: 0 1 50%;
@@ -272,6 +276,7 @@ main .form {
      main .request-demo h2 > strong{
         font-size: var(  --body-font-size-xl);
         letter-spacing: 0;
+        margin: 0;
       }
 
       main .contact-us h2::after{
