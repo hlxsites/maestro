@@ -90,12 +90,18 @@
 @media (max-width: 767px) {
     .tabs-control {
         border-bottom: none; /* Remove the bottom border on mobile */
+        flex-wrap: wrap;        
     }
-   
-    /* Style the "Listing Funds" tab to appear as the first tab on mobile */
-    #tab-listing-funds-label {
-        order: 1;
+
+    .tab {
+        flex-basis:100%;
     }
+
+    .tab:first-child {
+        order: -1;
+        flex-basis:auto;
+    }
+    
     .tab > label > h2 > a {
         border-bottom: none; /* Remove the bottom border on mobile */
     }
