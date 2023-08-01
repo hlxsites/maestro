@@ -2,6 +2,7 @@
     overflow-x: auto; /* so we could easily hide the radio inputs */
 	margin: 32px 0;
 	padding-bottom: 16px;
+	border-bottom: 1px solid #ccc
 }
 
 .tabs [type="radio"] {
@@ -53,41 +54,33 @@
 	border-top: 3px solid transparent;
 }
 
+.tabs-control .tab:hover > label > h2 > a,
 .tab > label > h2 > a:hover,
 .tab > label > h2 > a:focus,
-.tabs-control .tab:hover > label > h2 > a {
-    text-decoration: none;
+.tab:focus-within > label > h2 > a {
+	text-decoration: none;
 }
-
-.tab > label > h2 > a:hover,
-.tab > label > h2 > a:focus,
-.tab:focus-within > label > h2 > a,
-.tabs-control .tab:hover > label > h2 > a:hover,
-.tabs-control .tab:hover > label > h2 > a:focus {
-    text-decoration: none;
-}
-
 
 .tab:hover label {
-	color: #000;
+	color: #333;
 }
 
-.tab > label > h2 > a:hover:not(.active):hover{
+
+.tab > label > h2 > a:hover:not(.active) {
 	border-top: 3px solid transparent;
 }
 
-@media (max-width: 768px) {
-	.tabs-control {
-		justify-content: flex-start;
-	}
-}
-
-@media (min-width: 1024px){
-	.tab > label > h2 > a {
-		padding: 24px;
-		border-top: 3px solid transparent;
-		border-bottom: none;
-	}
+/* Media query for desktop */
+@media (min-width: 768px) {
+    .tabs-control {
+        justify-content: center; /* Center the tabs on desktop */
+    }
+    
+    .tab > label > h2 > a {
+        padding: 24px;
+        border-top: 3px solid transparent;
+        border-bottom: none;
+    }
 }
 
 .contents-wrapper .contents {
