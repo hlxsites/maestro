@@ -87,21 +87,22 @@
 }
 
 /* New media query for mobile devices */
-@media (max-width: 767px) {
+@media (max-width: 767px) { 
     .tabs-control {
         border-bottom: none; /* Remove the bottom border on mobile */
+        display: flex;
         flex-wrap: wrap;        
     }
 
     .tab {
-        flex-basis:100%;
+        order: 2;
+        flex: 1 0 100%;
     }
 
-    .tab:first-child {
-        order: -1;
-        flex-basis:auto;
-    }
-    
+   #tab-listing-funds-label {
+        order: 1;
+   }
+
     .tab > label > h2 > a {
         border-bottom: none; /* Remove the bottom border on mobile */
     }
