@@ -12,7 +12,7 @@
 
 .tabs-control {
     display: flex;
-	justify-content: flex-start;
+	justify-content: center;
     list-style: none;
 	flex-wrap: nowrap;
     gap: 16px;
@@ -77,6 +77,12 @@
 	border-top: 3px solid transparent;
 }
 
+@media (max-width: 768px) {
+	.tabs-control {
+		justify-content: flex-start;
+	}
+}
+
 @media (min-width: 1024px){
 	.tab > label > h2 > a {
 		padding: 24px;
@@ -111,7 +117,7 @@
 .tabs [type="radio"]:nth-of-type(3):checked ~ .tabs-control .tab:nth-of-type(17) > label > h2 > a,
 .tabs [type="radio"]:nth-of-type(4):checked ~ .tabs-control .tab:nth-of-type(18) > label > h2 > a {
 	color: #040404;
-    border-color: #07d21b;
+    border-color: #7FFFD4;
     text-shadow: -0.4px -0.4px 0 #000, 0.4px 0.3px #000;
 }
 
