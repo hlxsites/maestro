@@ -91,7 +91,8 @@
     .tabs-control {
         border-bottom: none; /* Remove the bottom border on mobile */
         display: flex;
-        flex-wrap: wrap;        
+        flex-wrap: wrap;
+        flex-direction: row;        
     }
 
     .tab {
