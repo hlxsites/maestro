@@ -201,7 +201,7 @@ main .form {
     width: 48px;
     height: 3px;
     margin: 18px auto 12px;
-    background-color: var(clr-blue);
+    background-color: var(--clr-blue);
   }
 
   main .newsletter .form{
