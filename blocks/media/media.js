@@ -19,13 +19,14 @@ const embedVimeo = (url, autoplay) => {
   return embedHTML;
 };
 
-const getMP4Embed = (url) => {
+const getMP4Embed = (url, posterUrl = '') => {
+  console.log('posterUrl', posterUrl);
   const uniqueId = `mediaMp4Embed${Math.floor(Math.random() * 100000)}`;
   const playButtonId = `playButton${Math.floor(Math.random() * 100000)}`;
 
   const html = `
     <div class="media-mp4-wrapper">
-      <video id="${uniqueId}" src="${url.href}" width="100%" loop="" class="media-mp4-video"
+      <video id="${uniqueId}" src="${url.href}" width="100%" loop="" class="media-mp4-video" poster="${posterUrl}"
              onclick="this.paused ? 
                       this.play() : 
                       this.pause();
@@ -44,17 +45,17 @@ const getMP4Embed = (url) => {
 };
 
 // Function that returns HTML string for the media placeholder
-const getPlaceholderHTML = (url) => `
+const getPlaceholderHTML = (url, posterUrl = '') => `
     <div class="media-player">
       <div class="media-player-wrapper">
-       <video src="${url}" preload="auto" style="width: 100%; height: 100%;"></video>
+       <video src="${url}" preload="auto" style="width: 100%; height: 100%;" poster="${posterUrl}"></video>
       </div>
       <div class="media-player-overlay"></div>
       <button class="Button media-player-play" type="button" aria-label="Play"></button>
     </div>
   `;
 
-const loadMedia = (block, link, view) => {
+const loadMedia = (block, link, view, posterUrl) => {
   if (block.classList.contains('media-is-loaded')) {
     return;
   }
@@ -72,7 +73,7 @@ const loadMedia = (block, link, view) => {
       embed: (url) => {
         // If it's mp4 media and it's to be viewed in modal
         if (view && view === 'modal') {
-          const placeholderHTML = getPlaceholderHTML(url);
+          const placeholderHTML = getPlaceholderHTML(url, posterUrl);
           block.innerHTML = placeholderHTML;
           block.classList = 'block media media-mp4';
 
@@ -91,7 +92,7 @@ const loadMedia = (block, link, view) => {
           return placeholderHTML;
         }
         // If it's not in modal view, just embed the mp4
-        const mp4Embed = getMP4Embed(url, block);
+        const mp4Embed = getMP4Embed(url, posterUrl);
         block.innerHTML = mp4Embed.html;
         return mp4Embed.html;
       },
@@ -116,25 +117,19 @@ export default function decorate(block) {
   const link = block.querySelector('a').href;
 
   const cfg = readBlockConfig(block);
+  let posterUrl;
 
   block.textContent = '';
 
   if (placeholder) {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'media-placeholder';
-    wrapper.innerHTML = '<div class="media-placeholder-play"><button title="Play"></button></div>';
-    wrapper.prepend(placeholder);
-    wrapper.addEventListener('click', () => {
-      loadMedia(block, link, true);
-    });
-    block.append(wrapper);
-  } else {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        observer.disconnect();
-        loadMedia(block, link, cfg.view);
-      }
-    });
-    observer.observe(block);
+    const img = placeholder.querySelector('img');
+    posterUrl = img ? img.src : ''; // Use src of img as poster URL
   }
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      observer.disconnect();
+      loadMedia(block, link, cfg.view, posterUrl);
+    }
+  });
+  observer.observe(block);
 }

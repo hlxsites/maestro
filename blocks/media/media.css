@@ -82,6 +82,7 @@ main .media .media-mp4-play {
   max-width: 100%;
   background: url('../../styles/icons/play.svg') center no-repeat;
   background-size: contain;
+  pointer-events: all;
 }
 
 @media (min-width: 768px) {
