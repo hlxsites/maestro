@@ -20,7 +20,6 @@ const embedVimeo = (url, autoplay) => {
 };
 
 const getMP4Embed = (url, posterUrl = '') => {
-  console.log('posterUrl', posterUrl);
   const uniqueId = `mediaMp4Embed${Math.floor(Math.random() * 100000)}`;
   const playButtonId = `playButton${Math.floor(Math.random() * 100000)}`;
 
