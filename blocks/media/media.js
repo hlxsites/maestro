@@ -47,7 +47,7 @@ const getMP4Embed = (url) => {
 const getPlaceholderHTML = (url) => `
     <div class="media-player">
       <div class="media-player-wrapper">
-       <video src="${url}" preload="auto" style="width: 100%; height: 100%;" onclick="this.paused ? this.play() : this.pause();"></video>
+       <video src="${url}" preload="auto" style="width: 100%; height: 100%;"></video>
       </div>
       <div class="media-player-overlay"></div>
       <button class="Button media-player-play" type="button" aria-label="Play"></button>
