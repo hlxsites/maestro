@@ -45,9 +45,52 @@ main .media .media-player-play {
     background-size: contain;
 }
 
+main .media .media-mp4-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+main .media .media-mp4-video {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+main .media .media-mp4-overlay {
+    display: flex;
+    flex-flow: row nowrap;
+    min-width: 0;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+main .media .media-mp4-play {
+  width: 68px;
+  overflow: hidden;
+  max-width: 100%;
+  background: url('../../styles/icons/play.svg') center no-repeat;
+  background-size: contain;
+}
+
 @media (min-width: 768px) {
   main .media .media-player-play {
     width: 128px;
     height: 129px;
+  }
+
+  main .media .media-mp4-play {
+    width: 128px;
   }
 }

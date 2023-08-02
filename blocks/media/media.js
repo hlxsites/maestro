@@ -19,18 +19,35 @@ const embedVimeo = (url, autoplay) => {
   return embedHTML;
 };
 
-const getMP4Embed = (url) => `
-  <video width="100%" controls>
-    <source src="${url.href}" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-`;
+const getMP4Embed = (url) => {
+  const uniqueId = `mediaMp4Embed${Math.floor(Math.random() * 100000)}`;
+  const playButtonId = `playButton${Math.floor(Math.random() * 100000)}`;
+
+  const html = `
+    <div class="media-mp4-wrapper">
+      <video id="${uniqueId}" src="${url.href}" width="100%" loop="" class="media-mp4-video"
+             onclick="this.paused ? 
+                      this.play() : 
+                      this.pause();
+                      this.parentElement.querySelector('#${playButtonId}').style.display = 
+                      this.paused ? 'block' : 'none';">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-mp4-overlay">
+        <div id="${playButtonId}" class="media-mp4-play">
+        </div>
+      </div>
+    </div>
+  `;
+
+  return { html };
+};
 
 // Function that returns HTML string for the media placeholder
 const getPlaceholderHTML = (url) => `
     <div class="media-player">
       <div class="media-player-wrapper">
-       <video src="${url}" preload="auto" style="width: 100%; height: 100%;"></video>
+       <video src="${url}" preload="auto" style="width: 100%; height: 100%;" onclick="this.paused ? this.play() : this.pause();"></video>
       </div>
       <div class="media-player-overlay"></div>
       <button class="Button media-player-play" type="button" aria-label="Play"></button>
@@ -74,7 +91,9 @@ const loadMedia = (block, link, view) => {
           return placeholderHTML;
         }
         // If it's not in modal view, just embed the mp4
-        return getMP4Embed(url);
+        const mp4Embed = getMP4Embed(url, block);
+        block.innerHTML = mp4Embed.html;
+        return mp4Embed.html;
       },
     },
   ];
@@ -82,7 +101,8 @@ const loadMedia = (block, link, view) => {
   const config = MEDIA_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
   if (config) {
-    block.innerHTML = config.embed(url);
+    const result = config.embed(url);
+    block.innerHTML = result.html || result;
     block.classList = `block media media-${config.name[0]}`;
   } else {
     block.innerHTML = getDefaultEmbed(url);
