@@ -233,6 +233,34 @@ display: block;
 text-align: center;
 }
 
+/* Insights Hero Variant */
+
+.columns.insights-hero{
+  margin: 0 0 36px;
+}
+
+.columns.insights-hero h2{
+  margin: inherit;
+  font-family: var(--labg-text-regular);
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #454547;
+  letter-spacing: -0.03em;
+}
+
+.columns.insights-hero  > div >div:nth-child(2) {
+  font-family: var(--labg-text-thin);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.33;
+  color: #454547;
+  letter-spacing: 0.01em;
+  max-width: 320px;
+  padding: 24px 0 0;
+  margin: 24px 0 0;
+}
+
 /* Section style (Hero-about) */
 .section.hero-about{
   padding-top: 70px;
@@ -271,6 +299,10 @@ text-align: center;
 }
 
 /* Columns  Customer-Story Variant */
+.section.hero-customer-story{
+  padding-bottom: 32px;
+}
+
 .section.hero-customer-story .default-content-wrapper h5{
   color:var(--clr-blue);
   font-size: 14px;
@@ -278,6 +310,7 @@ text-align: center;
   line-height: var(--line-height-1);
   letter-spacing: 1.75px;
   margin-bottom: var(--spacer-layout-32);
+  margin-top: inherit;
   font-family: var(--labg-text-bold);
   text-transform: uppercase;
 }
@@ -465,9 +498,13 @@ text-align: center;
     margin: 0;
   }
 
+  .section.hero-about > div:first-of-type{
+    flex: 0 0 41.667%;
+  }
+
   .section.hero-about > div:first-of-type,
   .section.hero-customer-story > div:first-of-type{
-    flex: 0 0 41.6667%;
+    flex: 0 0 33.333%;
   }
 
   .section.hero-about > div:not(:first-of-type){
@@ -476,6 +513,17 @@ text-align: center;
 
   .section.hero-customer-story  > div:not(:first-of-type){
     flex: 0 1 50%;
+  }
+
+  .section.hero-customer-story .default-content-wrapper h1,
+  .section.hero-customer-story .default-content-wrapper h1 strong{
+    font-size: 80px;
+    margin: inherit;
+  }
+
+  .icon-manulife-gray svg{
+    width: 346px;
+    height: 53px;
   }
 
   .columns.banner.about {
@@ -565,5 +613,13 @@ text-align: center;
 
   .columns.banner.hero a[href$=".mp4"] picture::after{
     width: 128px;
+  }
+
+  .columns.insights-hero  > div >div:nth-child(2) {
+    max-width: 400px;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    padding-right:25%
   }
 }
