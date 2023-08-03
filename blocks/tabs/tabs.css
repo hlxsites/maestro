@@ -1,9 +1,15 @@
+@font-face {
+    font-family: 'IvarHeadline-Semibold';
+    src: url('styles/fonts/IvarHeadline-Semibold.woff2') format('woff2');
+}
+
 .tabs {
     overflow-x: auto; /* so we could easily hide the radio inputs */
 	margin: 32px 0;
 	padding-bottom: 16px;
 	border-bottom: 1px solid #ccc;
 }
+
 
 .tabs [type="radio"] {
 	/* hiding the inputs */
@@ -29,8 +35,10 @@
 .tab > label,
 .tab > label > h2,
 .tab > label > h2 > a {
-	font-size: 16px;
+	font-size: 14px;
+    color: #777;
 	cursor: pointer;
+    font-family: 'IvarHeadline-Semibold', sans-serif;
 }
 
 .tab > label > h2 {
@@ -46,6 +54,7 @@
     border-bottom: 3px solid transparent;
     box-sizing: border-box;
     text-shadow: -0.4px -0.4px 0 transparent,0.4px 0.3px transparent;
+    font-family: 'IvarHeadline-Semibold', sans-serif;
 	font-size: 16px;
 }
 
@@ -75,7 +84,6 @@
     color: #000 !important; /* Black color */
     text-shadow: -0.3px 0 black, 0 0.3px black, 0.3px 0 black, 0 -0.3px black;
 }
-
 
 /* Media query for desktop */
 @media (min-width: 768px) {
@@ -146,7 +154,6 @@
     border-color: #00ada2;
     text-shadow: -0.4px -0.4px 0 #000, 0.4px 0.3px #000;
 }
-
 .tabs [type="radio"]:nth-of-type(1):checked ~ .contents-wrapper .contents:nth-of-type(1),
 .tabs [type="radio"]:nth-of-type(2):checked ~ .contents-wrapper .contents:nth-of-type(2),
 .tabs [type="radio"]:nth-of-type(3):checked ~ .contents-wrapper .contents:nth-of-type(3),
