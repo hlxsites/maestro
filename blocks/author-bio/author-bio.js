@@ -124,7 +124,7 @@ export default function decorate(block) {
     twitterShare.setAttribute('target', '_blank');
     twitterShare.setAttribute('rel', 'noopener noreferrer');
     twitterShare.setAttribute('aria-label', 'Twitter');
-    twitterShare.setAttribute('href', `https://twitter.com/intent/tweet?text=${encodeURIComponent(authorDescription)}&url=${encodeURIComponent(authorSocial.twitter)}`);
+    twitterShare.setAttribute('href', `https://twitter.com/intent/tweet?text=${encodeURIComponent(authorDescription)}&url=${encodeURIComponent(authorSocial)}`);
     twitterShare.appendChild(twitterIcon);
     shareWrapper.append(twitterShare);
 
@@ -136,7 +136,7 @@ export default function decorate(block) {
     linkedInShare.setAttribute('target', '_blank');
     linkedInShare.setAttribute('rel', 'noopener noreferrer');
     linkedInShare.setAttribute('aria-label', 'LinkedIn');
-    linkedInShare.setAttribute('href', `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(authorSocial.linkedin)}&title=${encodeURIComponent(authorTitle)}&summary=${encodeURIComponent(authorDescription)}&source=`);
+    linkedInShare.setAttribute('href', `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(authorSocial)}&title=${encodeURIComponent(authorTitle)}&summary=${encodeURIComponent(authorDescription)}&source=`);
     linkedInShare.appendChild(linkedInIcon);
     shareWrapper.append(linkedInShare);
 
