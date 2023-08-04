@@ -137,7 +137,7 @@
 .author-bio-avatar {
   width: 80px;
   height: 80px;
-  margin: 0 21px;
+  margin: 0 21px 0 0;
 }
 
 .author-bio-avatar img {
@@ -211,12 +211,12 @@
 }
 
 .author-bio-follow-btn svg {
-  margin: 0 16px;
+  margin: 0 16px 0 0;
 }
 
 @media (min-width: 768px) {
   .author-bio-words-by {
-    margin: 40px 180px 0;
+    margin: 40px 180px 0 0;
   }
 
   .author-words-by-words {
