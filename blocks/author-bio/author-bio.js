@@ -142,6 +142,4 @@ export default function decorate(block) {
 
     block.append(wordsByWrapper, time, shareWrapper);
   }
-
-  console.log(authorName, authorTitle, authorDescription, authorSocial, authorImage);
 }
