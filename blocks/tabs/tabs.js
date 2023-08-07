@@ -78,7 +78,6 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
   return ul;
 }
 
-
 export default async function decorate(block) {
   const presentTabContents = [...block.querySelectorAll(':scope > div.contents-wrapper > div.contents')];
 
