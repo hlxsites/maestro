@@ -82,6 +82,9 @@ async function decorateTemplates(main) {
       if (mod.default) {
         await mod.default(main);
       }
+      if (mod?.loadEager) {
+        await mod.loadEager(main);
+      }
     }
   } catch (error) {
     // eslint-disable-next-line no-console
