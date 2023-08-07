@@ -10,7 +10,6 @@
 	border-bottom: 1px solid #ccc;
 }
 
-
 .tabs [type="radio"] {
 	/* hiding the inputs */
 	display: none;
@@ -21,8 +20,8 @@
 	justify-content: center;
     list-style: none;
 	flex-wrap: nowrap;
-    gap: 3px;
-	margin: 0;
+    gap: 2px;
+	margin: 1px 0;
 	overflow-x: auto;
 }
 
@@ -35,10 +34,18 @@
 .tab > label,
 .tab > label > h2,
 .tab > label > h2 > a {
-	font-size: 14px;
+	font-size: 12px;
     color: #777;
 	cursor: pointer;
     font-family: 'IvarHeadline-Semibold', sans-serif;
+    display: block;
+    width: 100%;
+    font-weight: 300;
+    line-height: 135%;
+    padding: 8px;
+    border-bottom: 3px solid transparent;
+    box-sizing: border-box;
+    text-shadow: -0.2px -0.2px 0 transparent, 0.2px 0.15px transparent;
 }
 
 .tab > label > h2 {
