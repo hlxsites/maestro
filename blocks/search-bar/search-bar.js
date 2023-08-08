@@ -3,13 +3,14 @@ import ffetch from '../../scripts/ffetch.js';
 
 let searchFunc;
 
-const loadSearch = async (inputsArray, resultsContainer) => {
+const loadSearch = async (inputsArray, resultsContainer, tag) => {
   const gnavSearch = await import('./search.js');
   searchFunc = gnavSearch.default;
-  searchFunc(null, resultsContainer);
+  if (tag) searchFunc(inputsArray, resultsContainer, true);
+  else searchFunc(null, resultsContainer, false);
 };
 
-async function buildTags() {
+async function buildTags(blockvalue) {
   const articles = await ffetch('/query-index.json')
     .filter((p) => p.template === 'insights')
     .all();
@@ -31,13 +32,16 @@ async function buildTags() {
     tag.innerHTML = item;
     tagItem.append(tag);
     tagsUl.appendChild(tagItem);
+    if (blockvalue === item) tag.classList.add('highlight');
   });
   return tagsUl;
 }
 
 export default async function decorate(block) {
+  const blockvalue = [...block.children][0].querySelector('div:nth-of-type(2)');
+  const defaulttag = blockvalue != null ? blockvalue.innerText : '';
   block.textContent = '';
-  const tags = await buildTags();
+  const tags = await buildTags(defaulttag);
   const title = '<h2>Browse Insights</h2> <a class="clear-btn">Clear All</a>';
   const tagsheader = document.createElement('div');
   tagsheader.classList.add('tagsheader');
@@ -55,7 +59,10 @@ export default async function decorate(block) {
   results.className = 'results';
   results.append(resultsContainer);
   block.parentElement.append(results);
-  loadSearch([searchInput, searchInputOuter], resultsContainer);
+  if (blockvalue) {
+    loadSearch([defaulttag], resultsContainer, true);
+    document.getElementsByClassName('clear-btn')[0].style.visibility = 'visible';
+  } else loadSearch([searchInput, searchInputOuter], resultsContainer, false);
   [searchInput, searchInputOuter].forEach((el) => {
     el.querySelector('input').addEventListener('input', (event) => {
       if (event.target.value.length === 0) {

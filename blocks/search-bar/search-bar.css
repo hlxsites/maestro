@@ -103,6 +103,12 @@ input:focus-visible {
   letter-spacing: var(--letter-spacing-2);
   margin-top: var(--spacer-layout-16);
   text-decoration: none;
+  text-decoration-line: none;
+}
+
+.article-card > p:hover {
+  text-decoration: none;
+  text-decoration-line: none;
 }
 
 .search-bar .tags-wrapper .tags {
