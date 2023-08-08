@@ -5,8 +5,8 @@ let searchFunc;
 
 const loadSearch = async (inputsArray, resultsContainer) => {
   const gnavSearch = await import('./search.js');
-  searchFunc = gnavSearch.default;  
-  searchFunc(null, resultsContainer);  
+  searchFunc = gnavSearch.default;
+  searchFunc(null, resultsContainer);
 };
 
 async function buildTags() {
@@ -38,37 +38,60 @@ async function buildTags() {
 export default async function decorate(block) {
   block.textContent = '';
   const tags = await buildTags();
+  const title = '<h2>Browse Insights</h2> <a class="clear-btn">Clear All</a>';
+  const tagsheader = document.createElement('div');
+  tagsheader.classList.add('tagsheader');
+  tagsheader.innerHTML = title;
   const tagList = createTag('div', { class: 'tags-wrapper' }, tags.outerHTML);
+  tagList.prepend(tagsheader);
   block.append(tagList);
   const searchInputInner = '<input type="text" name="search" placeholder="Search">';
   const searchInput = createTag('div', { class: 'search-input-wrapper' }, searchInputInner);
   const searchInputOuter = searchInput.cloneNode(true);
   const resultsContainer = createTag('div', { class: 'results-wrapper', id: 'search-results' });
   block.append(searchInputOuter);
-  const results = document.getElementById('results');
+  const results = document.createElement('div');
+  results.setAttribute('id', 'results');
+  results.className = 'results';
   results.append(resultsContainer);
+  block.parentElement.append(results);
   loadSearch([searchInput, searchInputOuter], resultsContainer);
   [searchInput, searchInputOuter].forEach((el) => {
     el.querySelector('input').addEventListener('input', (event) => {
-      if (event.target.value.length === 0) {        
+      if (event.target.value.length === 0) {
         searchFunc(null, resultsContainer);
-      } else {        
+      } else {
         searchFunc(event.target.value, resultsContainer);
       }
     });
   });
+  const tagFilterList = [];
   tagList.querySelectorAll('li > a').forEach((link) => {
     link.addEventListener('click', () => {
-      const tagFilterList = [];
       if (link.classList.contains('highlight')) {
         link.classList.remove('highlight');
         tagFilterList.splice(tagFilterList.indexOf(link.innerText), 1);
       } else {
-        tagFilterList.push(link.innerText);        
+        tagFilterList.push(link.innerText);
         link.classList.add('highlight');
       }
-      if (tagFilterList.length === 0) searchFunc(null, resultsContainer, false);
-      else searchFunc(tagFilterList, resultsContainer, true);
+      if (tagFilterList.length === 0) {
+        document.getElementsByClassName('clear-btn')[0].style.visibility = 'hidden';
+        searchFunc(null, resultsContainer, false);
+      } else {
+        document.getElementsByClassName('clear-btn')[0].style.visibility = 'visible';
+        searchFunc(tagFilterList, resultsContainer, true);
+      }
     });
+  });
+  tagsheader.querySelector('a').addEventListener('click', (event) => {
+    tagList.querySelectorAll('li > a').forEach((link) => {
+      if (link.classList.contains('highlight')) {
+        link.classList.remove('highlight');
+        tagFilterList.splice(tagFilterList.indexOf(link.innerText), 1);
+      }
+    });
+    event.target.style.visibility = 'hidden';
+    searchFunc(null, resultsContainer, false);
   });
 }
