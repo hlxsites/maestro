@@ -253,7 +253,7 @@ p.button-container {
   min-height: 48px;
 }
 
-main input {
+/* main input {
   font-size: 1.25rem;
   width: 100%;
   max-width: 50rem;
@@ -269,7 +269,7 @@ main input {
 
 main input:hover {
   border: 1px solid var(--text-color);
-}
+} */
 
 main blockquote {
   font-style: italic;
@@ -352,21 +352,50 @@ main .divider {
   padding: inherit;
 }
 
-
-
-@media (min-width: 768px) {
-  .section > div {
-    max-width: 1280px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+main .features-banner{
+  padding-bottom: 32px;
+  padding-bottom: 0;
 }
 
-@media (max-width: 1344px) {
-  .section > div { 
-    margin-right: 32px;
-    margin-left: 32px;
-  }
+main .features-banner h1{
+  font-size: 56px;
+}
+
+main .features-banner h1 strong {
+  font-family: var(--ivar-display-semibold);
+  font-weight: var(--font-weight-heavy);
+}
+
+main .features-banner h1::after{
+  content:'';
+  position: relative;
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 21px auto;
+  background-color: var(--clr-blue);
+}
+
+
+main .features-banner h1,
+main .features-banner p {
+  font-family: var(--labg-text-thin);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-1);
+  color: var(--text-color);
+  letter-spacing: 0;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  padding: 0 32px;
+}
+
+main .features-banner p {
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: var(--line-height-1-5);
+  letter-spacing: var(--letter-spacing-1);
+  padding-bottom: 40px;;
 }
 
 /* section metadata */
@@ -470,10 +499,29 @@ main .section.blue-background{
 }
 
 @media (min-width: 768px) {
+  .section > div {
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  main .features-banner{
+    padding-bottom: 120px;
+  }
+
+  main .features-banner .default-content-wrapper{
+    width: 40%
+  }
+
   main .section.secondary-banner {
     padding-top: var(--spacer-layout-100);
     padding-bottom: var(--spacer-layout-100);
   }
 }
 
-
+@media (max-width: 1344px) {
+  .section > div { 
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+}
