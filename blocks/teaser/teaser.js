@@ -1,5 +1,5 @@
 import ffetch from '../../scripts/ffetch.js';
-import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
+import { createOptimizedPicture } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   const link = block.querySelector('a').href;
