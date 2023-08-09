@@ -1,4 +1,3 @@
-import createTag from '../../utils/tag.js';
 import ffetch from '../../scripts/ffetch.js';
 
 let searchFunc;
@@ -32,7 +31,7 @@ async function buildTags(blockvalue) {
     tag.innerHTML = item;
     tagItem.append(tag);
     tagsUl.appendChild(tagItem);
-    if (blockvalue === item) tag.classList.add('highlight');
+    if (blockvalue.toLowerCase() === item.toLowerCase()) tag.classList.add('highlight');
   });
   return tagsUl;
 }
@@ -46,13 +45,19 @@ export default async function decorate(block) {
   const tagsheader = document.createElement('div');
   tagsheader.classList.add('tagsheader');
   tagsheader.innerHTML = title;
-  const tagList = createTag('div', { class: 'tags-wrapper' }, tags.outerHTML);
+  const tagList = document.createElement('div');
+  tagList.classList.add('tags-wrapper');
+  tagList.innerHTML = tags.outerHTML;
   tagList.prepend(tagsheader);
   block.append(tagList);
   const searchInputInner = '<input type="text" name="search" placeholder="Search">';
-  const searchInput = createTag('div', { class: 'search-input-wrapper' }, searchInputInner);
+  const searchInput = document.createElement('div');
+  searchInput.classList.add('search-input-wrapper');
+  searchInput.innerHTML = searchInputInner;
   const searchInputOuter = searchInput.cloneNode(true);
-  const resultsContainer = createTag('div', { class: 'results-wrapper', id: 'search-results' });
+  const resultsContainer = document.createElement('div');
+  resultsContainer.classList.add('results-wrapper');
+  resultsContainer.setAttribute('id', 'search-results');
   block.append(searchInputOuter);
   const results = document.createElement('div');
   results.setAttribute('id', 'results');

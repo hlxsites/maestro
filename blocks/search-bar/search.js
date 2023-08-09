@@ -1,5 +1,4 @@
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
-import createTag from '../../utils/tag.js';
 import ffetch from '../../scripts/ffetch.js';
 
 async function fetchBlogArticleIndex() {
@@ -21,7 +20,11 @@ function decorateCard(hit) {
         <h3>${title}</h3>
         <p>${description}</p>
       </div>`;
-  return createTag('a', { href: path, class: 'article-card' }, html);
+  const articlecard = document.createElement('a');
+  articlecard.setAttribute('href', path);
+  articlecard.classList.add('article-card');
+  articlecard.innerHTML = html;
+  return articlecard;
 }
 
 async function populateSearchResults(searchTerms, resultsContainer, tags = false) {
@@ -42,7 +45,7 @@ async function populateSearchResults(searchTerms, resultsContainer, tags = false
       if (tags) {
         let match = false;
         searchTerms.forEach((tag) => {
-          if (e.tags.includes(tag)) {
+          if (e.tags.toLowerCase().includes(tag.toLowerCase())) {
             match = true;
           }
         });
