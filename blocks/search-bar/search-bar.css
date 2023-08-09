@@ -94,7 +94,7 @@ input:focus-visible {
   word-break: break-word;
 }
 
-.article-card p {
+.article-card .article-card-body p {
   font-family: var(--ivar-headline-medium);
   font-size: var(--body-font-size-xs);
   font-weight: var(--font-weight-regular);
@@ -106,9 +106,13 @@ input:focus-visible {
   text-decoration-line: none;
 }
 
-.article-card > p:hover {
+a:hover {
   text-decoration: none;
   text-decoration-line: none;
+}
+
+a:hover h3{
+  text-decoration: underline;  
 }
 
 .search-bar .tags-wrapper .tags {
