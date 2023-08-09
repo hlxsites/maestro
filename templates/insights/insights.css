@@ -71,7 +71,7 @@
 } */
 
 
-.insights main .insight-banner h2 {
+.insights main .insight-banner .default-content-wrapper h2 {
   font-family: var(--labg-text-black);
   font-size: 40px;
   font-weight: 900;
@@ -79,16 +79,6 @@
   color: #454547;
   letter-spacing: -0.01em;
   margin: 2px 0 0;
-}
-
-.insights main .insight-banner h3 {
-  font-family: var(--ivar-headline-medium);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.25;
-  color: #7e7e81;
-  letter-spacing: 0.02em;
-  margin: 12px 42px 0 0;
 }
 
 .insights main .insight-content h3 {
@@ -99,6 +89,16 @@
   color: inherit;
   letter-spacing: 0;
   margin: 60px 0 24px;
+}
+
+.insights main .insight-banner .default-content-wrapper h3 {
+  font-family: var(--ivar-headline-medium);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #7e7e81;
+  letter-spacing: 0.02em;
+  margin: 12px 42px 0 0;
 }
 
 .insights main .insight-thumbnail {
@@ -206,7 +206,7 @@
 }
 
 @media(min-width: 576px) {
-  .insights main .insight-banner h3 {
+  .insights main .insight-banner .default-content-wrapper h3 {
     max-width: 80%;
     margin: 12px 0 0;
   }
@@ -217,7 +217,11 @@
     height: 268px;
   }
 
-  .insights main .insight-banner h2 {
+  .insights main .insight-banner .default-content-wrapper {
+    margin-top: 76px;
+  }
+
+  .insights main .insight-banner .default-content-wrapper h2 {
     font-size: 48px;
   }
 
@@ -275,11 +279,17 @@
     height: 500px;
   }
 
-  .insights main .insight-banner h3 {
+  .insights main .insight-banner .default-content-wrapper h2 {
+    max-width: 80%;
+    margin: 8px 0 0;
+    font-size: 64px;
+  }
+
+  .insights main .insight-banner .default-content-wrapper h3 {
     font-size: 22px;
   }
 
-  .insights main .insight-content h3 {
+  .insights main .insight-content .default-content-wrapper h3 {
     margin: 85px 0 36px;
     font-size: 32px;
   }
@@ -302,6 +312,12 @@
     content: "";
     display: block;
     margin-bottom: -116px;  /* Adjust to counteract the default margin */
+  }
+}
+
+@media (min-width: 1440px) {
+  .insights main .insight-content .default-content-wrapper code {
+    left: -300px;
   }
 }
 
