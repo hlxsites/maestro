@@ -177,7 +177,7 @@
 }
 
 .insights main .insight-content .default-content-wrapper p:last-of-type::after {
-  content: "  " url('../../styles/icons/insight-logo.svg');
+  content: "  " url('/styles/icons/insight-logo.svg');
   white-space: pre;
 }
 
