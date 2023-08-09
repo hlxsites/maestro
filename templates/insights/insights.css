@@ -1,90 +1,19 @@
 /* Insights Page Styling */
 
-/* .insights main h2{
-    font-family: var(--labg-text-black);
-    font-size: var( --heading-font-size-xl);
-    font-weight: var(  --font-weight-extra-heavy);
-    line-height: 1;
-    color: var(--text-color);
-    letter-spacing: -0.01em;
-    margin: 2px 0 0;
-}
-
-.insights main h3{
-    font-family: var( --ivar-display-semibold);
-    font-size: 30px;
-    font-weight: var( --font-weight-medium);
-    line-height: var(  --line-height-1-25);
-    color: inherit;
-    letter-spacing: 0;
-    margin: 60px 0 24px;
-}
-
-.insights main .default-content-wrapper p{
-    font-family: var(--labg-text-thin);
-    font-size: var(--body-font-size-m);
-    font-weight: var(--font-weight-light);
-    line-height: var(--line-height-1-66);
-    color: var(--text-color);
-    letter-spacing: var(  --letter-spacing-1);
-}
-
-.insights main .default-content-wrapper p strong{
-    display: inline-block;
-}
-
-.insights main .default-content-wrapper p > strong::first-letter{
-    color: var(--clr-blue);
-    font-family: var(--ivar-display-semibold);
-    font-size:72px
-}
-
-
-.insights main .default-content-wrapper p > code::before{
-    position: absolute;
-    top: 0;
-    left: -32px;
-    width: 32px;
-    height: 100%;
-    content: '';
-    background-color: var(--clr-blue);
-    margin-right: 10px;
-}
-
-.insights main .default-content-wrapper p > code{
-    font-family: var(--ivar-display-semibold);
-    font-size: var( --heading-font-size-xl);
-    font-weight: var(--font-weight-heavy);
-    line-height: var(--line-height-1);
-    color: var(--text-color);
-    letter-spacing: 0;
-    position: relative;
-    text-transform: uppercase;
-}
-
-
-.insights main img{
-    width: 100%;
-    height: 100%;
-    max-width: 1440px;
-    display: block;
-} */
-
-
 .insights main .insight-banner .default-content-wrapper h2 {
   font-family: var(--labg-text-black);
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1;
-  color: #454547;
-  letter-spacing: -0.01em;
+  font-size: var(--heading-font-size-l);
+  font-weight: var(--font-weight-extra-heavy);
+  line-height: var(--line-height-1);
+  color: var(--text-color);
+  letter-spacing: var(--letter-spacing-1);
   margin: 2px 0 0;
 }
 
 .insights main .insight-content h3 {
   font-family: var(--ivar-display-semibold);
   font-size: 30px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   line-height: 1.125;
   color: inherit;
   letter-spacing: 0;
@@ -93,11 +22,11 @@
 
 .insights main .insight-banner .default-content-wrapper h3 {
   font-family: var(--ivar-headline-medium);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: var(--body-font-size-s);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-1-25);
   color: #7e7e81;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--letter-spacing-2);
   margin: 12px 42px 0 0;
 }
 
@@ -142,7 +71,7 @@
 
 .insights main .insight-content .default-content-wrapper p {
   line-height: var(--line-height-1-66);
-  font-size: 20px;
+  font-size: var(--body-font-size-m);
 }
 
 .insights main .insight-content .default-content-wrapper code {
@@ -193,11 +122,11 @@
 
 .insights main .insight-content li {
   font-family: var(--labg-text-thin);
-  font-size: 20px;
-  font-weight: 300;
+  font-size: var(--body-font-size-m);
+  font-weight: var(--font-weight-light);
   line-height: 1.67;
-  color: #454547;
-  letter-spacing: 0.01em;
+  color: var(--text-color);
+  letter-spacing: var(--letter-spacing-1);
 }
 
 .insights main .insight-content ul,
