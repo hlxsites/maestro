@@ -181,10 +181,6 @@
   white-space: pre;
 }
 
-.insights main .insight-content .media-wrapper {
-  width: 840px;
-}
-
 .insights main .insight-content .default-content-wrapper + .media-wrapper::before {
   content: "";
   display: block;
@@ -226,6 +222,12 @@
 @media (min-width: 768px) {
   .insights main .insight-thumbnail img {
     height: 268px;
+  }
+
+  .insights main .insight-content .media-wrapper {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .insights main .insight-banner .default-content-wrapper {
