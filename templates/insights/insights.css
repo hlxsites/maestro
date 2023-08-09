@@ -165,6 +165,17 @@
   background-repeat: repeat-y;
 }
 
+.insights main .insight-content .default-content-wrapper:first-of-type p:first-child::first-letter {
+  font-family: var(--ivar-display-semibold);
+  color: var(--clr-blue);
+  float: left;
+  font-size: 3em;
+  line-height: 1;
+  height: 2em;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
 .insights main .insight-content .default-content-wrapper p:last-of-type::after {
   content: "  " url('../../styles/icons/insight-logo.svg');
   white-space: pre;
@@ -243,14 +254,7 @@
   }
 
   .insights main .insight-content .default-content-wrapper:first-of-type p:first-child::first-letter {
-    font-family: var(--ivar-display-semibold);
-    color: var(--clr-blue);
-    float: left;
     font-size: 3.3em;
-    line-height: 1;
-    height: 2em;
-    margin-right: 8px;
-    font-weight: bold;
   }
 
   .insights main .insight-content .default-content-wrapper p {
