@@ -81,7 +81,7 @@
   margin: 44px 0;
   text-transform: uppercase;
   font-family: var(--ivar-display-semibold);
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1;
   color: #454547;
@@ -193,6 +193,7 @@
   }
 
   .insights main .insight-content .default-content-wrapper code {
+    font-size: 40px;
     left: calc((100% - 100vw) / 2 + 32px);
   }
 
