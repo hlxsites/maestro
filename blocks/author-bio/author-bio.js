@@ -73,7 +73,7 @@ export default function decorate(block) {
 
     // Create an image element and set the SVG file as its source
     const linkedinIcon = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-    linkedinIcon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '../../styles/icons/linkedin.svg');
+    linkedinIcon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '/styles/icons/linkedin.svg');
     linkedinIcon.setAttribute('height', '24');
     linkedinIcon.setAttribute('width', '25');
 
@@ -118,7 +118,7 @@ export default function decorate(block) {
 
     // Twitter Icon
     const twitterIcon = new Image();
-    twitterIcon.src = '../../styles/icons/twitter.svg';
+    twitterIcon.src = '/styles/icons/twitter.svg';
     const twitterShare = document.createElement('a');
     twitterShare.classList.add('author-bio-share-btn');
     twitterShare.setAttribute('target', '_blank');
@@ -130,7 +130,7 @@ export default function decorate(block) {
 
     // LinkedIn Icon
     const linkedInIcon = new Image();
-    linkedInIcon.src = '../../styles/icons/linkedin.svg';
+    linkedInIcon.src = '/styles/icons/linkedin.svg';
     const linkedInShare = document.createElement('a');
     linkedInShare.classList.add('author-bio-share-btn');
     linkedInShare.setAttribute('target', '_blank');

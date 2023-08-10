@@ -44,7 +44,7 @@ export default async function decorate(block) {
     teaserImageLink.setAttribute('href', e.path);
     const teaserImage = createOptimizedPicture(e.image);
     teaserImage.classList.add('teaser-image');
-    teaserImageLink.append(teaserImage);
+    teaserImageLink.appendChild(teaserImage);
 
     block.append(teaserBadge, teaserTitle, teaserDescription, teaserAuthor, teaserImageLink);
   });

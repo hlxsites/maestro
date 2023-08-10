@@ -253,24 +253,6 @@ p.button-container {
   min-height: 48px;
 }
 
-/* main input {
-  font-size: 1.25rem;
-  width: 100%;
-  max-width: 50rem;
-  display: block;
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;
-  border-radius: 0.25rem;
-  box-sizing: border-box;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-main input:hover {
-  border: 1px solid var(--text-color);
-} */
-
 main blockquote {
   font-style: italic;
   margin: 3rem;
@@ -293,12 +275,6 @@ main img {
   width: auto;
   height: auto;
 }
-
-/* .icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-} */
 
 .icon svg {
   height: 100%;
@@ -411,7 +387,7 @@ main .section.blue-background{
   background-color: var(--clr-blue);
 }
 
-.section.secondary-banner {
+main .section.secondary-banner {
   display: flex;
   min-width: 0;
   max-width: 100%;
@@ -420,7 +396,7 @@ main .section.blue-background{
   padding: var(--spacer-layout-50) var(--spacer-layout-32) var(--spacer-layout-100);
 }
 
-.section.secondary-banner .default-content-wrapper {
+main .section.secondary-banner .default-content-wrapper {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -431,7 +407,7 @@ main .section.blue-background{
   text-align: center;
 }
 
-.section.secondary-banner .default-content-wrapper > h1 {
+main .section.secondary-banner .default-content-wrapper > h1 {
   font-family: var(--labg-text-medium);
   font-size: 14px;
   font-weight: var(--font-weight-heavy);
@@ -442,7 +418,7 @@ main .section.blue-background{
   margin: 0;
 }
 
-.section.secondary-banner .default-content-wrapper > h2 {
+main .section.secondary-banner .default-content-wrapper > h2 {
   font-family: var(--labg-text-light);
   font-size: var(--body-font-size-xl);
   line-height: var(--line-height-1);
@@ -451,16 +427,16 @@ main .section.blue-background{
   font-weight: var(--font-weight-light);
 }
 
-.section.secondary-banner .default-content-wrapper > h2 > strong {
+main .section.secondary-banner .default-content-wrapper > h2 > strong {
   font-family: var( --ivar-display-semibold);
   font-weight: var(--font-weight-medium);
 }
 
-.section.secondary-banner .default-content-wrapper > h3 {
+main .section.secondary-banner .default-content-wrapper > h3 {
   margin: 0;
 }
 
-.section.secondary-banner .default-content-wrapper > h4 {
+main .section.secondary-banner .default-content-wrapper > h4 {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   font-weight: var(--font-weight-regular);
@@ -469,21 +445,21 @@ main .section.blue-background{
   margin: 16px 0 28px;
 }
 
-.section.secondary-banner .default-content-wrapper .icon-manulife-white svg {
+main .section.secondary-banner .default-content-wrapper .icon-manulife-white svg {
   max-width: 320px;
   max-height: 49px;
   overflow: hidden;
   color: var(--clr-white);
 }
 
-.section.secondary-banner .default-content-wrapper .button-container {
+main .section.secondary-banner .default-content-wrapper .button-container {
   margin: 0;
 
   --button-background-color: var(--clr-white);
   --button-label-color: var(--clr-blue);
 }
 
-.section.secondary-banner .default-content-wrapper .button.primary {
+main .section.secondary-banner .default-content-wrapper .button.primary {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-xxs);
   font-weight: var(--font-weight-heavy);
@@ -509,7 +485,7 @@ main .section.blue-background{
     padding-bottom: 120px;
   }
 
-  main .features-banner .default-content-wrapper{
+  main .features-banner .default-content-wrapper {
     width: 40%
   }
 
@@ -525,3 +501,4 @@ main .section.blue-background{
     margin-left: 32px;
   }
 }
+
