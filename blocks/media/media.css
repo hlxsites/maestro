@@ -41,7 +41,7 @@ main .media .media-player-play {
     text-align: left;
     padding: 0;
     min-height: 24px; 
-    background: url('../../styles/icons/play.svg') center no-repeat;
+    background: url('/styles/icons/play.svg') center no-repeat;
     background-size: contain;
 }
 
@@ -81,7 +81,7 @@ main .media .media-mp4-play {
   width: 68px;
   overflow: hidden;
   max-width: 100%;
-  background: url('../../styles/icons/play.svg') center no-repeat;
+  background: url('/styles/icons/play.svg') center no-repeat;
   background-size: contain;
 }
 
