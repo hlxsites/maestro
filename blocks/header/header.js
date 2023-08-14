@@ -42,8 +42,8 @@ function decorateNav(html) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.innerHTML = html;
-  if (getMetadata('swapheaderbgcolor') && getMetadata('swapheaderbgcolor') === 'Y') {
-    nav.style.backgroundColor = '#ffff';
+  if (getMetadata('headerbgcolor')) {
+    nav.style.backgroundColor = getMetadata('headerbgcolor');
   }
   const dNav = nav.querySelector('.navigation');
   const sideNav = nav.querySelector('.sidenav');
