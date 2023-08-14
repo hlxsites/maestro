@@ -42,6 +42,9 @@ function decorateNav(html) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.innerHTML = html;
+  if (getMetadata('headerbgcolor')) {
+    nav.style.backgroundColor = getMetadata('headerbgcolor');
+  }
   const dNav = nav.querySelector('.navigation');
   const sideNav = nav.querySelector('.sidenav');
   const mobileNav = document.createElement('div');

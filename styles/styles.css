@@ -371,7 +371,7 @@ main .features-banner p {
   font-size: 18px;
   line-height: var(--line-height-1-5);
   letter-spacing: var(--letter-spacing-1);
-  padding-bottom: 40px;;
+  padding-bottom: 40px;
 }
 
 /* section metadata */
@@ -472,6 +472,13 @@ main .section.secondary-banner .default-content-wrapper .button.primary {
   background-color: var(--button-background-color);
   border-color: var(--button-background-color);
   color: var(--button-label-color);
+}
+
+/* icon styling */
+span.icon.icon-maark-willowtree {
+  display: block;
+  width: 260px;
+  height: 71px;
 }
 
 @media (min-width: 768px) {

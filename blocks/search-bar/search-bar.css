@@ -75,7 +75,7 @@ input:focus-visible {
   background-blend-mode: lighten;
 }
 
-.article-card .article-card-image picture {
+.article-card .article-card-image picture img{
   aspect-ratio: 4/3;
 }
 
@@ -192,7 +192,7 @@ a:hover h3{
 
 .search-bar .tagsheader .clear-btn {
   display: inline-flex;
-  margin: 0 0 0 32px;
+  margin: 15px 0 0 32px;
   font-family: var(--labg-text-regular);
   font-size: 16px;
   font-weight: var(--font-weight-regular);
