@@ -75,7 +75,7 @@ input:focus-visible {
   background-blend-mode: lighten;
 }
 
-.article-card .article-card-image picture {
+.article-card .article-card-image picture img{
   aspect-ratio: 4/3;
 }
 
