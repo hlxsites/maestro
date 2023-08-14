@@ -41,7 +41,7 @@ export default async function decorate(block) {
   const defaulttag = blockvalue != null ? blockvalue.innerText : '';
   block.textContent = '';
   const tags = await buildTags(defaulttag);
-  const title = '<h2>Browse Insights</h2> <a class="clear-btn">Clear All</a>';
+  const title = '<h2>Browse Insights</h2> <a class="clear-btn" href="#">Clear All</a>';
   const tagsheader = document.createElement('div');
   tagsheader.classList.add('tagsheader');
   tagsheader.innerHTML = title;
