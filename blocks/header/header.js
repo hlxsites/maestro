@@ -1,4 +1,11 @@
-import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
+import {
+  getMetadata,
+  decorateIcons,
+  buildBlock,
+  loadBlock,
+  decorateBlock,
+}
+  from '../../scripts/lib-franklin.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1280px)');
@@ -38,6 +45,85 @@ function toggleMenu(nav, mobileNav, forceExpanded = null) {
   }
 }
 
+async function createModal() {
+  const wrapper = document.createElement('div');
+  const btnModalClose = document.createElement('button');
+  btnModalClose.id = 'modal_close';
+  btnModalClose.className = 'Button modal-close';
+  btnModalClose.setAttribute('type', 'button');
+  btnModalClose.setAttribute('aria-label', 'Close');
+  wrapper.innerHTML = `<div class ="requestdemo"><h2 class ="requestdemo-title"><p><span class="bold">Request</span> a Demo</p></h2>
+  <div class="requestdemo-description"><p>Please fill out the form below to recieve access to a live demo of Maestro:</p></div>`;
+  wrapper.prepend(btnModalClose);
+  const newBlock = buildBlock('form', '');
+  const anchor = document.createElement('a');
+  anchor.href = 'https://main--maestro--hlxsites.hlx.page/forms/request-demo-form.json';
+  wrapper.append(newBlock);
+  newBlock.textContent = '';
+  newBlock.append(anchor);
+  decorateBlock(newBlock);
+  await loadBlock(newBlock);
+  return wrapper;
+}
+
+async function grayOut(vis, option, extra) {
+  const options = option || {};
+  const zindex = options.zindex || 50;
+  const opacity = options.opacity || 70;
+  const opaque = (opacity / 100);
+  const bgcolor = options.bgcolor || '#000000';
+  let dark = document.getElementById('darkenScreenObject');
+  if (!dark) {
+    const tbody = document.getElementsByTagName('body')[0];
+    const tnode = document.createElement('div');
+    tnode.id = 'darkenScreenObject';
+    tnode.className = 'darken-screen';
+    const msgnode = document.createElement('div');
+    msgnode.id = 'box';
+    msgnode.className = 'modal';
+    tbody.appendChild(msgnode);
+    tbody.appendChild(tnode);
+    dark = document.getElementById('darkenScreenObject');
+  }
+  if (vis) {
+    // Calculate the page width and height
+    let pageWidth;
+    let pageHeight;
+    if (document.body && (document.body.scrollWidth || document.body.scrollHeight)) {
+      pageWidth = `${document.body.scrollWidth}px`;
+      pageHeight = `${document.body.scrollHeight}px`;
+    } else if (document.body.offsetWidth) {
+      pageWidth = `${document.body.offsetWidth}px`;
+      pageHeight = `${document.body.offsetHeight}px`;
+    } else {
+      pageWidth = '100%';
+      pageHeight = '100%';
+    }
+    dark.style.opacity = opaque;
+    dark.style.filter = `alpha(opacity='${opacity}')`;
+    dark.style.zIndex = zindex;
+    dark.style.backgroundColor = bgcolor;
+    dark.style.width = pageWidth;
+    dark.style.height = pageHeight;
+    dark.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (extra === 'Y') document.body.style.overflow = 'hidden';
+    document.getElementById('box').style.zIndex = zindex + 10;
+    document.getElementById('box').style.border = '#000 solid 1px';
+    document.getElementById('box').style.display = 'block';
+    document.getElementById('box').style.backgroundColor = '#FFF';
+    const modal = await createModal();
+    document.getElementById('box').innerHTML = modal.innerHTML;
+    document.getElementById('modal_close').addEventListener('click', () => {
+      dark.style.display = 'none';
+      document.getElementById('box').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  } else {
+    dark.style.display = 'none';
+  }
+}
+
 function decorateNav(html) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
@@ -54,6 +140,9 @@ function decorateNav(html) {
       if (navitem.innerText.includes(':')) {
         navitem.classList.add('button');
         navitem.innerText = navitem.innerText.replace(':', '');
+        navitem.addEventListener('click', async () => {
+          await grayOut(true);
+        });
       }
       navitem.addEventListener('click', () => {
         if (isDesktop.matches) {
