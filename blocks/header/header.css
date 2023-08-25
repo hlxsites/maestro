@@ -324,7 +324,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     flex-flow: row nowrap;    
     position: fixed;
     top: 40%;
-    left: 50%;
+    left: 40%;
     align-items: center;
     justify-content: center;
     max-width: 624px;
@@ -333,7 +333,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     text-align: center;
     padding: 78px 72px 48px;
     background-color: rgba(0 0 0 66.7%);
-    border-radius: 6px;    
+    border-radius: 6px; 
+    
   }
 
   .darken-screen {
@@ -350,7 +351,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     width: 100%;
   }
 
-  .modal-close button:hover, .modal-close button:focus {
+  button.modal-close:hover{
     background-color: var(--clr-white);
     border: none;
     outline: none;
@@ -379,7 +380,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
   .requestdemo-title {
     max-height: 70px;
-  }
+    margin-top: 0;
+  } 
 
   .requestdemo-title p {
     font-family: var(--body-font-family);
@@ -389,6 +391,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     color: var(--text-color);
     letter-spacing: 0;
     text-align: center;
+    margin-top: 0;
   }
 
   .requestdemo-title p span {

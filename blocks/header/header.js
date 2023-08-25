@@ -45,7 +45,7 @@ function toggleMenu(nav, mobileNav, forceExpanded = null) {
   }
 }
 
-async function createModal() {
+async function createModal(formURL) {
   const wrapper = document.createElement('div');
   const btnModalClose = document.createElement('button');
   btnModalClose.id = 'modal_close';
@@ -57,7 +57,7 @@ async function createModal() {
   wrapper.prepend(btnModalClose);
   const newBlock = buildBlock('form', '');
   const anchor = document.createElement('a');
-  anchor.href = 'https://main--maestro--hlxsites.hlx.page/forms/request-demo-form.json';
+  anchor.href = `${formURL}.json`;
   wrapper.append(newBlock);
   newBlock.textContent = '';
   newBlock.append(anchor);
@@ -66,12 +66,11 @@ async function createModal() {
   return wrapper;
 }
 
-async function grayOut(vis, option, extra) {
-  const options = option || {};
-  const zindex = options.zindex || 50;
-  const opacity = options.opacity || 70;
+async function grayOut(vis, formURL, extra) {
+  const zindex = 50;
+  const opacity = 70;
   const opaque = (opacity / 100);
-  const bgcolor = options.bgcolor || '#000000';
+  const bgcolor = '#000000';
   let dark = document.getElementById('darkenScreenObject');
   if (!dark) {
     const tbody = document.getElementsByTagName('body')[0];
@@ -112,7 +111,7 @@ async function grayOut(vis, option, extra) {
     document.getElementById('box').style.border = '#000 solid 1px';
     document.getElementById('box').style.display = 'block';
     document.getElementById('box').style.backgroundColor = '#FFF';
-    const modal = await createModal();
+    const modal = await createModal(formURL);
     document.getElementById('box').innerHTML = modal.innerHTML;
     document.getElementById('modal_close').addEventListener('click', () => {
       dark.style.display = 'none';
@@ -138,10 +137,11 @@ function decorateNav(html) {
   if (dNav) {
     dNav.querySelectorAll(':scope > div > div > ul > li').forEach((navitem) => {
       if (navitem.innerText.includes(':')) {
+        const requestDemoForm = navitem.querySelector('a').href;
         navitem.classList.add('button');
         navitem.innerText = navitem.innerText.replace(':', '');
         navitem.addEventListener('click', async () => {
-          await grayOut(true);
+          await grayOut(true, requestDemoForm);
         });
       }
       navitem.addEventListener('click', () => {
