@@ -5,6 +5,7 @@
   font-family: "IvarDisplay Semibold";
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: url('./fonts/IvarDisplay-SemiBold.woff2') format('woff2'), url('./fonts/IvarDisplay-SemiBold.woff2') format('woff'); }
 
 /* Ivar Headline */
@@ -12,12 +13,14 @@
   font-family: "IvarHeadline Medium";
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('./fonts/IvarHeadline-Medium.woff2') format('woff2'), url('./fonts/IvarHeadline-Medium.woff2') format('woff'); }
 
 @font-face {
   font-family: "IvarHeadline Semibold";
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: url('./fonts/IvarHeadline-SemiBold.woff2') format('woff2'), url('./fonts/IvarHeadline-SemiBold.woff2') format('woff'); }
 
 /* Ivar Text */
@@ -25,12 +28,14 @@
   font-family: "IvarText Medium";
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('./fonts/IvarText-Medium.woff2') format('woff2'), url('./fonts/IvarText-Medium.woff2') format('woff'); }
 
 @font-face {
   font-family: "IvarText Semibold";
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: url('./fonts/IvarText-SemiBold.woff2') format('woff2'), url('./fonts/IvarText-SemiBold.woff2') format('woff'); }
 
 /* Lab Grotesque */
@@ -38,34 +43,40 @@
   font-family: "LabGrotesque Thin";
   font-style: normal;
   font-weight: 100;
+  font-display: swap;
   src: url('./fonts/LabGrotesque-Thin.woff2') format('woff2'), url('./fonts/LabGrotesque-Thin.woff2') format('woff'); }
 
 @font-face {
   font-family: "LabGrotesque Light";
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: url('./fonts/LabGrotesque-Light.woff2') format('woff2'), url('./fonts/LabGrotesque-Light.woff2') format('woff'); }
 
 @font-face {
   font-family: "LabGrotesque Regular";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('./fonts/LabGrotesque-Regular.woff2') format('woff2'), url('./fonts/LabGrotesque-Regular.woff2') format('woff'); }
 
 @font-face {
   font-family: "LabGrotesque Medium";
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('./fonts/LabGrotesque-Medium.woff2') format('woff2'), url('./fonts/LabGrotesque-Medium.woff2') format('woff'); }
 
 @font-face {
   font-family: "LabGrotesque Bold";
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('./fonts/LabGrotesque-Bold.woff2') format('woff2'), url('./fonts/LabGrotesque-Bold.woff2') format('woff'); }
 
 @font-face {
   font-family: "LabGrotesque Black";
   font-style: normal;
   font-weight: 900;
+  font-display: swap;
   src: url('./fonts/LabGrotesque-Black.woff2') format('woff2'), url('./fonts/LabGrotesque-Black.woff2') format('woff'); }
