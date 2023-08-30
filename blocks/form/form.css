@@ -1,6 +1,7 @@
-main .form {
+  main .form {
     background-color: var(--clr-white);
     width: 100%;
+    position: relative;
   }
   
   main .form h2 {
@@ -27,9 +28,12 @@ main .form {
     background-color: #f7f9fa;
     border-radius: 3px;
     outline: none;
-    box-shadow: inset 0 1px 2px color(0, 0, 0, 12%);
+    box-shadow: inset 0 1px 2px #0000001F;
     border: none;
-  }
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }  
   
   main .form textarea {
     min-height: 100px;
@@ -124,6 +128,10 @@ main .form {
     width: 100%;
   }
 
+  main .form button:focus {
+    outline: none;
+  }
+
   main .form .form-full-width > button {
     width: 100%;
   }
@@ -133,7 +141,7 @@ main .form {
     justify-content: center;
   }
 
-  main .form .form-disclaimer p{
+  main .form .form-disclaimer p {
     position: relative;
     display: block;
     font-family: var(--labg-text-thin);
@@ -147,12 +155,12 @@ main .form {
     padding:inherit;
   }
 
-  main .contact-us{
+  main .contact-us {
     padding: 60px var(--spacer-layout-32);
   }
 
   main .contact-us h2,
-  main .request-demo h2{
+  main .request-demo h2 {
     font-size: 40px;
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-1);
@@ -161,11 +169,11 @@ main .form {
   }
 
   main .contact-us h2,
-  main .request-demo h2 > strong{
+  main .request-demo h2 > strong {
     font-family: var(--ivar-display-semibold);
   }
 
-  main .request-demo h2{
+  main .request-demo h2 {
     font-family: var(--labg-text-thin);
   }
 
@@ -180,7 +188,7 @@ main .form {
     background-color: var(--clr-blue);
   }
 
-  main .contact-us .default-content-wrapper p{
+  main .contact-us .default-content-wrapper p {
     font-family: var(--labg-text-thin);
     font-size: var(--body-font-size-s);
     font-weight: var(--font-weight-light);
@@ -189,16 +197,19 @@ main .form {
     letter-spacing: var(--letter-spacing-1);
   }
 
-  main .request-demo{
-    display: flex;
-    flex-direction: column;
+  main .request-demo {
     max-width: 480px;
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 36px;
+    padding-bottom: 126px;
     justify-content: center;
     text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 
-  main .request-demo h2::after{
+  main .request-demo h2::after {
     content:'';
     position: relative;
     display: block;
@@ -212,7 +223,7 @@ main .form {
     background-color: inherit;
   }
   
-  main .newsletter{
+  main .newsletter {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -227,7 +238,7 @@ main .form {
     background-image: url('/media_1113b07b93b529b0427ae0006501047372012fc06.png#width=1162&height=368');
   }
 
-  main .newsletter h2{
+  main .newsletter h2 {
     font-family: var(--labg-text-thin);
     font-size: var(--heading-font-size-l);
     font-weight: var(  --font-weight-light);
@@ -236,13 +247,13 @@ main .form {
     letter-spacing: 0;
   }
 
-  main .newsletter h2 > strong{
+  main .newsletter h2 > strong {
     font-weight: var(--font-weight-medium);
     font-family: var(--ivar-display-semibold);
   }
 
 
-  main .newsletter .default-content-wrapper p{
+  main .newsletter .default-content-wrapper p {
     font-family: var(--ivar-text-medium);
     font-weight: var(--font-weight-regular);
     line-height: var(  --line-height-1-66);
@@ -252,6 +263,48 @@ main .form {
     font-size: 14px;
   }
 
+  main .error-shadow {
+    box-shadow: 0 0 4px #f65f9f, inset 0 1px 2px #0000001f !important;
+  }
+
+  main .focus-shadow {
+      box-shadow: 0 0 4px var(--clr-blue), inset 0 1px 2px #0000001f !important;
+  }
+
+  main .form-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #ffffffbf;
+  }
+
+  main .form-loader-inner {
+    text-align: center;
+  }
+
+  main .form-loader-icon {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    color: var(--clr-blue);
+  }
+
+  main .form-loader-label {
+    font-size: 18px;
+    color: var(--clr-blue);
+  }
+
+  @media (min-width: 576px) {
+    main .request-demo {
+      padding-top: 126px;
+      padding-bottom: 176px;
+    }
+  }
 
   @media screen and (min-width: 768px) {   
     main .form .field-wrapper {
@@ -273,38 +326,45 @@ main .form {
 
      main .contact-us h2,
      main .request-demo h2,
-     main .request-demo h2 > strong{
+     main .request-demo h2 > strong {
         font-size: var(  --body-font-size-xl);
         letter-spacing: 0;
         margin: 0;
       }
 
-      main .contact-us h2::after{
+      main .contact-us h2::after {
         margin-top: var(--spacer-layout-32);
         margin-bottom: var(--spacer-layout-32);
       }
 
-      main .contact-us .default-content-wrapper p{
+      main .contact-us .default-content-wrapper p {
         font-size: var(  --body-font-size-m);
         letter-spacing: var(  --letter-spacing-2);
       }
 
-      main .request-demo h2::after{
+      main .request-demo h2::after {
         margin: 26px auto 20px;
       }
 
-      main .request-demo > div{
+      main .request-demo > div {
         margin: 0 auto; 
       }
 
       main .newsletter .form-wrapper,
-      main .newsletter .default-content-wrapper{
+      main .newsletter .default-content-wrapper {
         max-width: 625px;
         margin: 0 auto;
         width: 100%;
       }
 
-      main .newsletter .default-content-wrapper p{
+      main .newsletter .default-content-wrapper p {
         font-size: var(  --body-font-size-xs);
       }
   }
+
+@media (max-width: 1344px) {
+  main .request-demo {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+}

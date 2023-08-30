@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { fetchPlaceholders, sampleRUM } from './lib-franklin.js';
+import { fetchPlaceholders, sampleRUM, loadScript } from './lib-franklin.js';
 
 const placeholders = await fetchPlaceholders();
 
@@ -14,3 +14,4 @@ function loadGoogleTagManager() {
 sampleRUM('cwv');
 
 loadGoogleTagManager();
+loadScript('./scripts/lottie-player.js');
