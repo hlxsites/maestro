@@ -1,3 +1,5 @@
+# NOTE: This repository is not in use anymore. Code/Content has now been moved to customer managed GIT and GDrive. Site is live on https://maestro.willowtree.ai/
+
 # AEM Franklin - Maestro
 https://maestro.maark.com/ on AEM Franklin
 
