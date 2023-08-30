@@ -14,7 +14,6 @@ import {
   loadBlock,
   toClassName,
   getMetadata,
-  loadScript,
 } from './lib-franklin.js';
 
 /**
@@ -321,7 +320,6 @@ function loadDelayed() {
 }
 
 async function loadPage() {
-  await loadScript('https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js');
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();

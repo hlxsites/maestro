@@ -268,7 +268,7 @@
   }
 
   main .focus-shadow {
-      box-shadow: 0 0 4px #00ada2, inset 0 1px 2px #0000001f !important;
+      box-shadow: 0 0 4px var(--clr-blue), inset 0 1px 2px #0000001f !important;
   }
 
   main .form-loader {
@@ -291,16 +291,16 @@
     display: inline-block;
     width: 150px;
     height: 150px;
-    color: #f65f9f;;
+    color: var(--clr-blue);
   }
 
   main .form-loader-icon path {
-    fill: #f65f9f;
+    fill: var(--clr-blue);
   } 
 
   main .form-loader-label {
     font-size: 18px;
-    color: #f65f9f;
+    color: var(--clr-blue);
   }
 
 
