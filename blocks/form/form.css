@@ -294,15 +294,10 @@
     color: var(--clr-blue);
   }
 
-  main .form-loader-icon path {
-    fill: var(--clr-blue);
-  } 
-
   main .form-loader-label {
     font-size: 18px;
     color: var(--clr-blue);
   }
-
 
   @media (min-width: 576px) {
     main .request-demo {

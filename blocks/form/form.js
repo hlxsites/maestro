@@ -30,10 +30,10 @@ async function createFormLoader(formContainer) {
 
   // Create Lottie player element for animation
   const lottiePlayer = document.createElement('lottie-player');
-  lottiePlayer.setAttribute('src', '/styles/icons/form-loader.json');
+  lottiePlayer.setAttribute('src', '/styles/icons/form-loader-blue.json');
   lottiePlayer.setAttribute('background', 'transparent');
   lottiePlayer.setAttribute('speed', '1');
-  lottiePlayer.setAttribute('style', 'width: 150px; height: 150px');
+  lottiePlayer.setAttribute('style', 'width: 150px; height: 150px;');
   lottiePlayer.setAttribute('loop', '');
   lottiePlayer.setAttribute('autoplay', '');
 
@@ -42,6 +42,7 @@ async function createFormLoader(formContainer) {
   const loaderLabel = document.createElement('h4');
   loaderLabel.className = 'form-loader-label';
   loaderLabel.textContent = 'Processing';
+
   loaderInner.appendChild(loaderLabel);
 
   formContainer.appendChild(loader);
@@ -59,10 +60,23 @@ function constructPayload(form) {
   return payload;
 }
 
+function updateLoaderForError(formContainer) {
+  const lottiePlayer = formContainer.querySelector('lottie-player');
+  if (lottiePlayer) {
+    lottiePlayer.setAttribute('src', '/styles/icons/form-loader-red.json');
+  }
+
+  const loaderLabel = formContainer.querySelector('.form-loader-label');
+  if (loaderLabel) {
+    loaderLabel.textContent = "We couldn't process your request. Please try again.";
+    loaderLabel.style.color = '#f65f9f'; // Change the label color to red
+  }
+}
+
 async function submitForm(form) {
   const formContainer = form.closest('.form');
 
-  // Display loader
+  // Display the default loader
   await createFormLoader(formContainer);
 
   const payload = constructPayload(form);
@@ -76,9 +90,13 @@ async function submitForm(form) {
     },
     body: JSON.stringify({ data: payload }),
   });
-  await resp.text();
 
-  // Remove the loader after processing is done (place it appropriately)
+  // Once response is received, check if there's an error
+  if (!resp.ok) {
+    // Update the loader to show error state
+    updateLoaderForError(formContainer);
+  }
+  // Remove the loader after processing is done
   const loader = formContainer.querySelector('.form-loader');
   if (loader) loader.remove();
 
@@ -90,6 +108,7 @@ function createButton(fd) {
   button.textContent = fd.Label;
   button.classList.add('button');
   if (fd.Type === 'submit') {
+    button.setAttribute('disabled', '');
     button.addEventListener('click', async (event) => {
       const form = button.closest('form');
       if (fd.Placeholder) form.dataset.action = fd.Placeholder;
@@ -164,6 +183,15 @@ function fill(form) {
     const loc = new URL(window.location.href);
     form.querySelector('#owner').value = loc.searchParams.get('owner') || '';
     form.querySelector('#installationId').value = loc.searchParams.get('id') || '';
+  }
+}
+
+function updateSubmitButtonState(form) {
+  const submitButton = form.querySelector('button');
+  if (form.checkValidity()) {
+    submitButton.removeAttribute('disabled');
+  } else {
+    submitButton.setAttribute('disabled', '');
   }
 }
 
@@ -255,6 +283,8 @@ async function createForm(formURL) {
 
     form.append(fieldWrapper);
   });
+
+  form.addEventListener('input', () => updateSubmitButtonState(form));
 
   form.addEventListener('change', () => applyRules(form, rules));
   applyRules(form, rules);
