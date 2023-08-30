@@ -223,15 +223,15 @@ async function createForm(formURL) {
 
     const inputElement = fieldWrapper.querySelector('input, select, textarea, button');
     if (inputElement) {
-      inputElement.addEventListener('focus', () => {
-        this.classList.add('focus-shadow');
-        this.classList.remove('error-shadow');
+      inputElement.addEventListener('focus', (event) => {
+        event.target.classList.add('focus-shadow');
+        event.target.classList.remove('error-shadow');
       });
 
-      inputElement.addEventListener('blur', () => {
-        this.classList.remove('focus-shadow');
-        if (!this.checkValidity()) {
-          this.classList.add('error-shadow');
+      inputElement.addEventListener('blur', (event) => {
+        event.target.classList.remove('focus-shadow');
+        if (!event.target.checkValidity()) {
+          event.target.classList.add('error-shadow');
         }
       });
 
