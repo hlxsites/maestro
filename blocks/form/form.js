@@ -30,10 +30,10 @@ async function createFormLoader(formContainer) {
 
   // Create Lottie player element for animation
   const lottiePlayer = document.createElement('lottie-player');
-  lottiePlayer.setAttribute('src', '/styles/icons/form-loader.json'); // Path to your Lottie JSON file
+  lottiePlayer.setAttribute('src', '/styles/icons/form-loader.json');
   lottiePlayer.setAttribute('background', 'transparent');
   lottiePlayer.setAttribute('speed', '1');
-  lottiePlayer.setAttribute('style', 'width: 150px; height: 150px'); // Set to same dimensions as your form-loader-icon
+  lottiePlayer.setAttribute('style', 'width: 150px; height: 150px');
   lottiePlayer.setAttribute('loop', '');
   lottiePlayer.setAttribute('autoplay', '');
 
