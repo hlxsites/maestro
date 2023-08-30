@@ -264,7 +264,7 @@
   }
 
   main .error-shadow {
-    box-shadow: 0 0 4px #f65f9f, inset 0 1px 2px #0000001f;
+    box-shadow: 0 0 4px #f65f9f, inset 0 1px 2px #0000001f !important;
   }
 
   main .focus-shadow {
