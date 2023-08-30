@@ -1,6 +1,7 @@
 main .form {
     background-color: var(--clr-white);
     width: 100%;
+    position: relative;
   }
   
   main .form h2 {
@@ -29,6 +30,8 @@ main .form {
     outline: none;
     box-shadow: inset 0 1px 2px color(0, 0, 0, 12%);
     border: none;
+    padding-right: 16px;
+    padding-left: 16px;
   }
   
   main .form textarea {
@@ -122,6 +125,10 @@ main .form {
     background-color: #00ada2;
     border-color: #00ada2;
     width: 100%;
+  }
+
+  main .form button:focus {
+    outline: none;
   }
 
   main .form .form-full-width > button {
@@ -250,6 +257,47 @@ main .form {
     letter-spacing: var(  --letter-spacing-2);
     margin: 10px 0 24px;
     font-size: 14px;
+  }
+
+
+  main .error-shadow {
+    box-shadow: 0 0 4px #f65f9f, inset 0 1px 2px #0000001f;
+  }
+
+  main .focus-shadow {
+      box-shadow: 0 0 4px #00ada2, inset 0 1px 2px #0000001f !important;
+  }
+
+  main .form-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #ffffffbf;
+  }
+
+  main .form-loader-inner {
+    text-align: center;
+  }
+
+  main .form-loader-icon {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    color: #f65f9f;;
+  }
+
+  main .form-loader-icon path {
+    fill: #f65f9f;
+  } 
+
+  main .form-loader-label {
+    font-size: 18px;
+    color: #f65f9f;
   }
 
 

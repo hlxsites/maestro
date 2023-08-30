@@ -20,6 +20,33 @@ function createSelect(fd) {
   return select;
 }
 
+async function createFormLoader(formContainer) {
+  const loader = document.createElement('div');
+  loader.className = 'form-loader';
+
+  const loaderInner = document.createElement('div');
+  loaderInner.className = 'form-loader-inner';
+  loader.appendChild(loaderInner);
+
+  // Create Lottie player element for animation
+  const lottiePlayer = document.createElement('lottie-player');
+  lottiePlayer.setAttribute('src', '/styles/icons/form-loader.json'); // Path to your Lottie JSON file
+  lottiePlayer.setAttribute('background', 'transparent');
+  lottiePlayer.setAttribute('speed', '1');
+  lottiePlayer.setAttribute('style', 'width: 150px; height: 150px'); // Set to same dimensions as your form-loader-icon
+  lottiePlayer.setAttribute('loop', '');
+  lottiePlayer.setAttribute('autoplay', '');
+
+  loaderInner.appendChild(lottiePlayer);
+
+  const loaderLabel = document.createElement('h4');
+  loaderLabel.className = 'form-loader-label';
+  loaderLabel.textContent = 'Processing';
+  loaderInner.appendChild(loaderLabel);
+
+  formContainer.appendChild(loader);
+}
+
 function constructPayload(form) {
   const payload = {};
   [...form.elements].forEach((fe) => {
@@ -33,7 +60,13 @@ function constructPayload(form) {
 }
 
 async function submitForm(form) {
+  const formContainer = form.closest('.form');
+
+  // Display loader
+  await createFormLoader(formContainer);
+
   const payload = constructPayload(form);
+
   payload.timestamp = new Date().toJSON();
   const resp = await fetch(form.dataset.action, {
     method: 'POST',
@@ -44,6 +77,11 @@ async function submitForm(form) {
     body: JSON.stringify({ data: payload }),
   });
   await resp.text();
+
+  // Remove the loader after processing is done (place it appropriately)
+  const loader = formContainer.querySelector('.form-loader');
+  if (loader) loader.remove();
+
   return payload;
 }
 
@@ -182,6 +220,39 @@ async function createForm(formURL) {
         console.warn(`Invalid Rule ${fd.Rules}: ${e}`);
       }
     }
+
+    const inputElement = fieldWrapper.querySelector('input, select, textarea, button');
+    if (inputElement) {
+      inputElement.addEventListener('focus', () => {
+        this.classList.add('focus-shadow');
+        this.classList.remove('error-shadow');
+      });
+
+      inputElement.addEventListener('blur', () => {
+        this.classList.remove('focus-shadow');
+        if (!this.checkValidity()) {
+          this.classList.add('error-shadow');
+        }
+      });
+
+      // For buttons, we want a style when it's pressed but not clicked.
+      if (inputElement.tagName === 'BUTTON') {
+        let buttonPressed = false;
+
+        inputElement.addEventListener('mousedown', () => {
+          inputElement.classList.add('focus-shadow');
+          buttonPressed = true;
+        });
+
+        document.addEventListener('mouseup', () => {
+          if (buttonPressed) {
+            inputElement.classList.remove('focus-shadow');
+            buttonPressed = false;
+          }
+        });
+      }
+    }
+
     form.append(fieldWrapper);
   });
 
